@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 // utils
 import useNotifier from '@/utils/useNotifier'
@@ -56,6 +57,7 @@ const calculatePercentage = (count, total) => {
 }
 
 const AccountSettings = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const dispatch = useDispatch()
     useNotifier()

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import { cloneDeep } from 'lodash'
 import { v4 as uuidv4 } from 'uuid'
@@ -47,6 +48,7 @@ import useNotifier from '@/utils/useNotifier'
 const steps = ['Embeddings', 'Vector Store', 'Record Manager']
 
 const VectorStoreConfigure = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { hasAssignedWorkspace } = useAuth()

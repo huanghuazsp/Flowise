@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // Material
@@ -18,6 +19,7 @@ import configApi from '@/api/config'
 import useApi from '@/hooks/useApi'
 
 const NodeInfoDialog = ({ show, dialogProps, onCancel }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
     const theme = useTheme()

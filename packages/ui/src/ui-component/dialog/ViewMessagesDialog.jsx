@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import axios from 'axios'
@@ -128,6 +129,7 @@ const messageImageStyle = {
 }
 
 const ConfirmDeleteMessageDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const [hardDelete, setHardDelete] = useState(false)
 

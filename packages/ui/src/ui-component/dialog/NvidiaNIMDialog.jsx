@@ -17,9 +17,11 @@ import {
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 
 const NvidiaNIMDialog = ({ open, onClose, onComplete }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
 
     const modelOptions = {

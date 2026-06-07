@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // material-ui
@@ -24,6 +25,7 @@ const endTitle = `Thank you!
 What can I do for you?`
 
 const Leads = ({ dialogProps }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
 
     useNotifier()

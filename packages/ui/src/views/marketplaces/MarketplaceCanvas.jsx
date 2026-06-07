@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ReactFlow, { Controls, Background, useNodesState, useEdgesState } from 'reactflow'
 import 'reactflow/dist/style.css'
 import '@/views/canvas/index.css'
@@ -24,6 +25,7 @@ const edgeTypes = { buttonedge: '' }
 // ==============================|| CANVAS ||============================== //
 
 const MarketplaceCanvas = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const navigate = useNavigate()
     const customization = useSelector((state) => state.customization)

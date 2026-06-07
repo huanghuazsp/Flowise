@@ -1,6 +1,7 @@
-﻿import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, MenuItem, Select, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { useTheme } from '@mui/material/styles'
 
@@ -302,6 +303,7 @@ const followUpPromptsOptions = {
 }
 
 const FollowUpPrompts = ({ dialogProps }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
 
     useNotifier()
@@ -413,7 +415,7 @@ const FollowUpPrompts = ({ dialogProps }) => {
 
     useEffect(() => {
         if (!dialogProps.chatflow) return
-        // Load chatbotConfig unconditionally — otherwise saving follow-up prompts
+        // Load chatbotConfig unconditionally �� otherwise saving follow-up prompts
         // writes an empty object and wipes starterPrompts/leads/allowedOrigins/etc.
         if (dialogProps.chatflow.chatbotConfig) {
             try {

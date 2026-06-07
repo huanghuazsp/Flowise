@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { enqueueSnackbar as enqueueSnackbarAction, closeSnackbar as closeSnackbarAction } from '@/store/actions'
 
@@ -388,6 +389,7 @@ DiscoveredToolRow.propTypes = {
 }
 
 const CustomMcpServerDialog = ({ show, dialogProps, onCancel, onConfirm, onAuthorize, onCreated }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
     const theme = useTheme()

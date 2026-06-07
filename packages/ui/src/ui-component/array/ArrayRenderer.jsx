@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
-import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { Chip, Box, Button, IconButton } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { IconTrash, IconPlus } from '@tabler/icons-react'
@@ -11,6 +12,7 @@ import { cloneDeep } from 'lodash'
 import { flowContext } from '@/store/context/ReactFlowContext'
 
 export const ArrayRenderer = ({ inputParam, data, disabled, isDocStore = false }) => {
+    const { t } = useTranslation()
     const [arrayItems, setArrayItems] = useState([]) // these are the actual values. Ex: [{name: 'John', age: 30}, {name: 'Jane', age: 25}]
     const [itemParameters, setItemParameters] = useState([]) // these are the input parameters for each array item. Ex: [{label: 'Name', type: 'string', display: true}, {label: 'age', type: 'number', display: false}]
     const theme = useTheme()

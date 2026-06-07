@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Accordion,
@@ -39,6 +40,7 @@ import variablesApi from '@/api/variables'
 // utils
 
 const OverrideConfigTable = ({ columns, onToggle, rows, sx }) => {
+    const { t } = useTranslation()
     const customization = useSelector((state) => state.customization)
     const isDark = customization?.isDarkMode
 

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
@@ -45,6 +46,7 @@ const chatHistory = JSON.stringify($flow.chatHistory, null, 2);
 return $flow.rawOutput + " This is a post processed response!";`
 
 const PostProcessing = ({ dialogProps }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
 
     useNotifier()

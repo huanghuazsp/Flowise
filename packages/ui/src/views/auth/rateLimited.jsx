@@ -32,14 +32,14 @@ const RateLimitedPage = () => {
                         <img style={{ objectFit: 'cover', height: '20vh', width: 'auto' }} src={unauthorizedSVG} alt='rateLimitedSVG' />
                     </Box>
                     <Typography sx={{ mb: 2 }} variant='h4' component='div' fontWeight='bold'>
-                        429 Too Many Requests
+                        429 请求过多
                     </Typography>
                     <Typography variant='body1' component='div' sx={{ mb: 2, textAlign: 'center' }}>
-                        {`You have made too many requests in a short period of time. Please wait ${retryAfter}s before trying again.`}
+                        {`你在短时间内发出了过多请求。请等待 ${retryAfter} 秒后再试。`}
                     </Typography>
                     <Link to='/'>
                         <Button variant='contained' color='primary'>
-                            Back to Home
+                            返回首页
                         </Button>
                     </Link>
                 </Stack>

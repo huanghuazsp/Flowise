@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import moment from 'moment'
 import * as PropTypes from 'prop-types'
 
@@ -238,6 +239,7 @@ ShowUserRow.propTypes = {
 // ==============================|| Users ||============================== //
 
 const Users = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
     const dispatch = useDispatch()

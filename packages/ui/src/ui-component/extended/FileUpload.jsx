@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { enqueueSnackbar as enqueueSnackbarAction, closeSnackbar as closeSnackbarAction, SET_CHATFLOW } from '@/store/actions'
 import parser from 'html-react-parser'
@@ -52,6 +53,7 @@ const availableFileTypes = [
 ]
 
 const FileUpload = ({ dialogProps }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const customization = useSelector((state) => state.customization)
 

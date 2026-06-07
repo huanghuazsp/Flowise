@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { Badge, Tooltip } from '@mui/material'
 import { IconHistory } from '@tabler/icons-react'
@@ -10,6 +11,7 @@ import useApi from '@/hooks/useApi'
 import ScheduleHistoryDrawer from './ScheduleHistoryDrawer'
 
 const ScheduleHistoryFAB = ({ chatflowid, onOpenChange }) => {
+    const { t } = useTranslation()
     const [open, setOpen] = useState(false)
     const [runningCount, setRunningCount] = useState(0)
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import ReactFlow, { addEdge, Controls, Background, useNodesState, useEdgesState } from 'reactflow'
 import 'reactflow/dist/style.css'
 
@@ -61,6 +62,7 @@ const edgeTypes = { buttonedge: ButtonEdge }
 // ==============================|| CANVAS ||============================== //
 
 const Canvas = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const navigate = useNavigate()
     const { hasAssignedWorkspace } = useAuth()

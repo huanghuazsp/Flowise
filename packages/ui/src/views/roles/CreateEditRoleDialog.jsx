@@ -1,6 +1,7 @@
 import { closeSnackbar as closeSnackbarAction, enqueueSnackbar as enqueueSnackbarAction } from '@/store/actions'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -31,6 +32,7 @@ import { HIDE_CANVAS_DIALOG, SHOW_CANVAS_DIALOG } from '@/store/actions'
 import './CreateEditRoleDialog.css'
 
 const CreateEditRoleDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
 
     const dispatch = useDispatch()

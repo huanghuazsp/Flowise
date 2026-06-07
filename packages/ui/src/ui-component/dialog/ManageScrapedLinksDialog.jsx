@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 
@@ -34,6 +35,7 @@ import {
 } from '@/store/actions'
 
 const ManageScrapedLinksDialog = ({ show, dialogProps, onCancel, onSave }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
 

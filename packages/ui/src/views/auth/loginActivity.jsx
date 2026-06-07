@@ -146,19 +146,19 @@ const LoginActivity = () => {
     function getActivityDescription(activityCode) {
         switch (activityCode) {
             case 0:
-                return 'Login Success'
+                return '登录成功'
             case 1:
-                return 'Logout Success'
+                return '登出成功'
             case -1:
-                return 'Unknown User'
+                return '未知用户'
             case -2:
-                return 'Incorrect Credential'
+                return '凭证错误'
             case -3:
-                return 'User Disabled'
+                return '用户已禁用'
             case -4:
-                return 'No Assigned Workspace'
+                return '未分配工作区'
             default:
-                return 'Unknown Activity'
+                return '未知活动'
         }
     }
 
@@ -217,7 +217,7 @@ const LoginActivity = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader search={false} title={t('Login Activity')}></ViewHeader>
+                        <ViewHeader search={false} title='登录活动'></ViewHeader>
                         <Stack flexDirection='row'>
                             <Box sx={{ p: 2, height: 'auto', width: '100%' }}>
                                 <div
@@ -238,7 +238,7 @@ const LoginActivity = () => {
                                         }}
                                     >
                                         <div style={{ marginRight: 10 }}>
-                                            <b style={{ marginRight: 10 }}>From: </b>
+                                            <b style={{ marginRight: 10 }}>从: </b>
                                             <DatePicker
                                                 selected={startDate}
                                                 onChange={(date) => onStartDateSelected(date)}
@@ -249,7 +249,7 @@ const LoginActivity = () => {
                                             />
                                         </div>
                                         <div style={{ marginRight: 10 }}>
-                                            <b style={{ marginRight: 10 }}>To: </b>
+                                            <b style={{ marginRight: 10 }}>到: </b>
                                             <DatePicker
                                                 selected={endDate}
                                                 onChange={(date) => onEndDateSelected(date)}
@@ -273,7 +273,7 @@ const LoginActivity = () => {
                                                 }}
                                             >
                                                 <InputLabel size='small' id='type-label'>
-                                                    Filter By
+                                                    筛选
                                                 </InputLabel>
                                                 <Select
                                                     size='small'
@@ -334,7 +334,7 @@ const LoginActivity = () => {
                                                     }
                                                 />
                                             </IconButton>
-                                            Showing {Math.min(start, totalRecords)}-{end} of {totalRecords} Records
+                                            显示 {Math.min(start, totalRecords)}-{end} / {totalRecords} 条记录
                                             <IconButton
                                                 size='small'
                                                 onClick={() => changePage(currentPage + 1)}
@@ -372,11 +372,11 @@ const LoginActivity = () => {
                                             }}
                                         >
                                             <TableRow>
-                                                <StyledTableCell>Activity</StyledTableCell>
-                                                <StyledTableCell>User</StyledTableCell>
-                                                <StyledTableCell>Date</StyledTableCell>
-                                                <StyledTableCell>Method</StyledTableCell>
-                                                <StyledTableCell>Message</StyledTableCell>
+                                                <StyledTableCell>活动</StyledTableCell>
+                                                <StyledTableCell>用户</StyledTableCell>
+                                                <StyledTableCell>日期</StyledTableCell>
+                                                <StyledTableCell>方式</StyledTableCell>
+                                                <StyledTableCell>消息</StyledTableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
@@ -483,7 +483,7 @@ const LoginActivity = () => {
                                                                 {moment(item.attemptedDateTime).format('MMMM Do, YYYY, HH:mm')}
                                                             </StyledTableCell>
                                                             <StyledTableCell>
-                                                                {item.loginMode ? item.loginMode : 'Email/Password'}
+                                                                {item.loginMode ? item.loginMode : '邮箱/密码'}
                                                             </StyledTableCell>
                                                             <StyledTableCell>{item.message}</StyledTableCell>
                                                         </StyledTableRow>

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // material-ui
@@ -18,6 +19,7 @@ import useNotifier from '@/utils/useNotifier'
 import chatflowsApi from '@/api/chatflows'
 
 const ChatFeedback = ({ dialogProps, onConfirm }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
 
     useNotifier()

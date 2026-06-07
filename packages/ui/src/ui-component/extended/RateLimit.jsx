@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { enqueueSnackbar as enqueueSnackbarAction, closeSnackbar as closeSnackbarAction, SET_CHATFLOW } from '@/store/actions'
 import PropTypes from 'prop-types'
@@ -20,6 +21,7 @@ import chatflowsApi from '@/api/chatflows'
 import useNotifier from '@/utils/useNotifier'
 
 const RateLimit = ({ dialogProps, hideTitle = false }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const chatflow = useSelector((state) => state.canvas.chatflow)
     const chatflowid = chatflow.id

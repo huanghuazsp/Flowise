@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 
@@ -54,6 +55,7 @@ import { evaluators as evaluatorsOptions } from '../evaluators/evaluatorConstant
 const steps = ['Datasets', 'Evaluators', 'LLM Graded Metrics']
 
 const CreateEvaluationDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const theme = useTheme()
     useNotifier()

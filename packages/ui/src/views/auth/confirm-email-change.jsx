@@ -71,7 +71,7 @@ const ConfirmEmailChange = () => {
                                         height: '48px'
                                     }}
                                 />
-                                <Typography variant='h1'>Confirming email change...</Typography>
+                                <Typography variant='h1'>正在确认邮箱变更...</Typography>
                             </>
                         )}
                         {errorMessage && (
@@ -90,7 +90,7 @@ const ConfirmEmailChange = () => {
                                 >
                                     <IconX />
                                 </Box>
-                                <Typography variant='h1'>Confirmation failed.</Typography>
+                                <Typography variant='h1'>确认失败。</Typography>
                                 <Typography variant='body2' color='textSecondary' sx={{ textAlign: 'center' }}>
                                     {errorMessage}
                                 </Typography>
@@ -112,9 +112,9 @@ const ConfirmEmailChange = () => {
                                 >
                                     <IconCheck />
                                 </Box>
-                                <Typography variant='h1'>Email updated successfully.</Typography>
+                                <Typography variant='h1'>邮箱更新成功。</Typography>
                                 <Typography variant='body2' color='textSecondary' sx={{ textAlign: 'center' }}>
-                                    Please sign in with your new email address.
+                                    请使用新邮箱地址登录。
                                 </Typography>
                             </>
                         )}

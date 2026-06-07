@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 
@@ -13,6 +14,7 @@ import { StyledButton } from '@/ui-component/button/StyledButton'
 import { HIDE_CANVAS_DIALOG, SHOW_CANVAS_DIALOG } from '@/store/actions'
 
 const ChatFeedbackContentDialog = ({ show, onCancel, onConfirm }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
 

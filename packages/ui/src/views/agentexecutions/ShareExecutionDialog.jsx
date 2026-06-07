@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -16,6 +17,7 @@ import executionsApi from '@/api/executions'
 import useApi from '@/hooks/useApi'
 
 const ShareExecutionDialog = ({ show, executionId, onClose, onUnshare }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const theme = useTheme()
     const dispatch = useDispatch()

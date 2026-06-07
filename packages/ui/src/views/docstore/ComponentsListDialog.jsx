@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -14,6 +15,7 @@ import { HIDE_CANVAS_DIALOG, SHOW_CANVAS_DIALOG } from '@/store/actions'
 import useApi from '@/hooks/useApi'
 
 const ComponentsListDialog = ({ show, dialogProps, onCancel, apiCall, onSelected }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const customization = useSelector((state) => state.customization)
     const dispatch = useDispatch()

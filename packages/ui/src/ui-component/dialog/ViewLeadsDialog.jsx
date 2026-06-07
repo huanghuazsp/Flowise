@@ -1,6 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 import { useState, useEffect, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
@@ -50,6 +51,7 @@ DatePickerCustomInput.propTypes = {
 }
 
 const ViewLeadsDialog = ({ show, dialogProps, onCancel }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const dispatch = useDispatch()
     const theme = useTheme()

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { DataGrid as MUIDataGrid, GridActionsCellItem } from '@mui/x-data-grid'
 import { IconPlus } from '@tabler/icons-react'
 import { Button } from '@mui/material'
@@ -34,6 +35,7 @@ const StyledDataGrid = styled(MUIDataGrid)(({ theme }) => ({
 }))
 
 export const DataGrid = ({ columns, rows, style, disabled = false, hideFooter = false, onChange }) => {
+    const { t } = useTranslation()
     const [rowValues, setRowValues] = useState(formatDataGridRows(rows) ?? [])
 
     const deleteItem = useCallback(

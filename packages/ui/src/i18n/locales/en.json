@@ -619,5 +619,118 @@
     "Override existing prompt with Chat Prompt Template. Human Message must includes {input} variable": "Override existing prompt with Chat Prompt Template. Human Message must include {input} variable",
     "Input Moderation": "Input Moderation",
     "Detect text that could generate harmful output and prevent it from being sent to the language model": "Detect text that could generate harmful output and prevent it from being sent to the language model",
-    "You are helpful assistant": "You are helpful assistant"
+    "You are helpful assistant": "You are helpful assistant",
+    "auth": {
+        "signIn": {
+            "title": "Sign In",
+            "emailLabel": "Email",
+            "passwordLabel": "Password",
+            "forgotPassword": "Forgot password?",
+            "loginButton": "Login",
+            "dontHaveAccount": "Don't have an account?",
+            "signUpFree": "Sign up for free",
+            "haveInviteCode": "Have an invite code?",
+            "signUpAccount": "Sign up for an account",
+            "resendVerification": "Resend Verification Email",
+            "verificationSent": "Verification email has been sent successfully.",
+            "failedSendVerification": "Failed to send verification email.",
+            "signInWithMicrosoft": "Sign In With Microsoft",
+            "signInWithGoogle": "Sign In With Google",
+            "signInWithAuth0": "Sign In With Auth0 by Okta",
+            "signInWithGithub": "Sign In With Github",
+            "or": "OR"
+        },
+        "register": {
+            "title": "Sign Up",
+            "fullName": "Full Name",
+            "namePlaceholder": "Display Name",
+            "nameHelpText": "Is used for display purposes only.",
+            "emailLabel": "Email",
+            "emailPlaceholder": "user@company.com",
+            "emailHelpText": "Kindly use a valid email address. Will be used as login id.",
+            "passwordLabel": "Password",
+            "passwordHelpText": "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.",
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordHelpText": "Confirm your password. Must match the password typed above.",
+            "inviteCode": "Invite Code",
+            "inviteCodePlaceholder": "Paste in the invite code.",
+            "inviteCodeHelpText": "Please copy the token you would have received in your email.",
+            "createAccount": "Create Account",
+            "alreadyHaveAccount": "Already have an account?",
+            "signIn": "Sign In",
+            "or": "OR",
+            "signInWithMicrosoft": "Sign In With Microsoft",
+            "signInWithGoogle": "Sign In With Google",
+            "signInWithAuth0": "Sign In With Auth0 by Okta",
+            "signInWithGithub": "Sign In With Github",
+            "registrationSuccessful": "Registration Successful. You will be redirected to the sign in page shortly.",
+            "verifyEmail": "To complete your registration, please click on the verification link we sent to your email address",
+            "errorRegistering": "Error in registering user. Please contact your administrator.",
+            "errorRegisteringCloud": "Error in registering user. Please try again."
+        },
+        "forgotPassword": {
+            "ifForgotEmail": "If you forgot the email you used for signing up, please contact your administrator.",
+            "instructionsSent": "Password reset instructions sent to the email."
+        },
+        "resetPassword": {
+            "title": "Reset Password",
+            "backToLogin": "Back to Login",
+            "emailLabel": "Email",
+            "resetToken": "Reset Token",
+            "resetTokenPlaceholder": "Paste in the reset token.",
+            "resetTokenHelpText": "Please copy the token you received in your email.",
+            "newPassword": "New Password",
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordHelpText": "Confirm your new password. Must match the password typed above.",
+            "updatePassword": "Update Password",
+            "passwordResetSuccess": "Password reset successful",
+            "failedResetPassword": "Failed to reset password!",
+            "tokenCannotBeBlank": "Token cannot be left blank!",
+            "passwordMismatch": "New Password and Confirm Password do not match."
+        },
+        "unauthorized": {
+            "title": "403 Forbidden",
+            "message": "You do not have permission to access this page.",
+            "backToHome": "Back to Home",
+            "backToLogin": "Back to Login"
+        },
+        "expired": {
+            "title": "Your enterprise license has expired",
+            "message": "Please contact our support team to renew your license.",
+            "contactSupport": "Contact Support"
+        },
+        "rateLimited": {
+            "title": "429 Too Many Requests",
+            "message": "You have made too many requests in a short period of time. Please wait {{retryAfter}}s before trying again.",
+            "backToHome": "Back to Home"
+        },
+        "loginActivity": {
+            "title": "Login Activity",
+            "activity": "Activity",
+            "user": "User",
+            "date": "Date",
+            "method": "Method",
+            "message": "Message",
+            "from": "From",
+            "to": "To",
+            "filterBy": "Filter By",
+            "showing": "Showing",
+            "records": "Records",
+            "of": "of",
+            "loginSuccess": "Login Success",
+            "logoutSuccess": "Logout Success",
+            "unknownUser": "Unknown User",
+            "incorrectCredential": "Incorrect Credential",
+            "userDisabled": "User Disabled",
+            "noAssignedWorkspace": "No Assigned Workspace",
+            "unknownActivity": "Unknown Activity",
+            "emailPassword": "Email/Password"
+        },
+        "verifyEmail": {
+            "confirming": "Confirming email change...",
+            "confirmationFailed": "Confirmation failed.",
+            "emailUpdated": "Email updated successfully.",
+            "signInNewEmail": "Please sign in with your new email address."
+        }
+    }
 }

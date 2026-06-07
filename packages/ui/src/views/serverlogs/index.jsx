@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // project imports
@@ -99,6 +100,7 @@ const subtractTime = (months, days, hours) => {
 }
 
 const Logs = () => {
+    const { t } = useTranslation()
     const colorTheme = useTheme()
 
     const customStyle = EditorView.baseTheme({

@@ -1,5 +1,6 @@
 import { IconClipboard, IconDownload } from '@tabler/icons-react'
 import { memo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import PropTypes from 'prop-types'
@@ -33,6 +34,7 @@ const programmingLanguages = {
 }
 
 export const CodeBlock = memo(({ language, chatflowid, isFullWidth, value }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const [anchorEl, setAnchorEl] = useState(null)
     const openPopOver = Boolean(anchorEl)

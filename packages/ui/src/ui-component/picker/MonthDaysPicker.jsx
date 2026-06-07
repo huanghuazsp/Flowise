@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { Box, Chip, Tooltip } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
@@ -7,6 +8,7 @@ const LAST_DAY_TOKEN = 'L'
 const DAYS_OF_MONTH = [...Array.from({ length: 31 }, (_, i) => String(i + 1)), LAST_DAY_TOKEN]
 
 export const MonthDaysPicker = ({ value, onChange, disabled = false }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
 
     const parseValue = (val) => {

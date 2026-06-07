@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import * as PropTypes from 'prop-types'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -125,6 +126,7 @@ const StyledMenu = styled((props) => (
 }))
 
 const DocumentStoreDetails = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
     const navigate = useNavigate()

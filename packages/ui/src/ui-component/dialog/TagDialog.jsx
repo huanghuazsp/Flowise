@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Dialog from '@mui/material/Dialog'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -8,6 +9,7 @@ import PropTypes from 'prop-types'
 import { DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material'
 
 const TagDialog = ({ isOpen, dialogProps, onClose, onSubmit }) => {
+    const { t } = useTranslation()
     const [inputValue, setInputValue] = useState('')
     const [categoryValues, setCategoryValues] = useState([])
 

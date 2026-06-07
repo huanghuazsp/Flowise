@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import axios from 'axios'
@@ -40,6 +41,7 @@ import SourceDocDialog from '@/ui-component/dialog/SourceDocDialog'
 import predictionApi from '@/api/prediction'
 
 export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, onProceedSuccess }) => {
+    const { t } = useTranslation()
     const [dataView, setDataView] = useState('rendered')
     const [openFeedbackDialog, setOpenFeedbackDialog] = useState(false)
     const [feedback, setFeedback] = useState('')

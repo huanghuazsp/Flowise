@@ -1,5 +1,6 @@
-ï»¿import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // material-ui
@@ -24,6 +25,7 @@ import mcpServerApi from '@/api/mcpserver'
 import chatflowsApi from '@/api/chatflows'
 
 const McpServer = ({ dialogProps, onStatusChange }) => {
+    const { t } = useTranslation()
     const dispatch = useDispatch()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
@@ -97,7 +99,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
                 dispatch({ type: SET_CHATFLOW, chatflow: resp.data })
             }
         } catch {
-            // silent fail â€” the store will refresh on next navigation
+            // silent fail ¡ª the store will refresh on next navigation
         }
     }
 
@@ -294,7 +296,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
                         </Typography>
                     </Box>
 
-                    {/* MCP Endpoint URL â€” visible only when has token */}
+                    {/* MCP Endpoint URL ¡ª visible only when has token */}
                     {token && (
                         <Box>
                             <Typography sx={{ mb: 1 }}>Streamable HTTP Endpoint</Typography>

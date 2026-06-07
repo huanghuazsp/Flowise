@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, memo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 
 // material-ui
@@ -71,6 +72,7 @@ const blacklistForChatflowCanvas = {
 }
 
 const AddNodes = ({ nodesData, node, isAgentCanvas, isAgentflowv2, onFlowGenerated }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
     const dispatch = useDispatch()

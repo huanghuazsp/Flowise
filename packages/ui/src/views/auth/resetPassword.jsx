@@ -36,28 +36,28 @@ const ResetPasswordPage = () => {
     const closeSnackbar = (...args) => dispatch(closeSnackbarAction(...args))
 
     const emailInput = {
-        label: 'Email',
+        label: '邮箱',
         name: 'email',
         type: 'email',
         placeholder: 'user@company.com'
     }
 
     const passwordInput = {
-        label: 'Password',
+        label: '新密码',
         name: 'password',
         type: 'password',
         placeholder: '********'
     }
 
     const confirmPasswordInput = {
-        label: 'Confirm Password',
+        label: '确认密码',
         name: 'confirmPassword',
         type: 'password',
         placeholder: '********'
     }
 
     const resetPasswordInput = {
-        label: 'Reset Token',
+        label: '重置令牌',
         name: 'resetToken',
         type: 'text'
     }
@@ -85,10 +85,10 @@ const ResetPasswordPage = () => {
         setAuthErrors([])
         setAuthRateLimitError(null)
         if (!tokenVal) {
-            validationErrors.push('Token cannot be left blank!')
+            validationErrors.push('令牌不能为空！')
         }
         if (newPasswordVal !== confirmPasswordVal) {
-            validationErrors.push('New Password and Confirm Password do not match.')
+            validationErrors.push('新密码和确认密码不匹配。')
         }
         const passwordErrors = validatePassword(newPasswordVal)
         if (passwordErrors.length > 0) {
@@ -112,7 +112,7 @@ const ResetPasswordPage = () => {
             setLoading(false)
             if (updateResponse.data) {
                 enqueueSnackbar({
-                    message: 'Password reset successful',
+                    message: '密码重置成功',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -133,7 +133,7 @@ const ResetPasswordPage = () => {
             setLoading(false)
             setAuthErrors([typeof error.response.data === 'object' ? error.response.data.message : error.response.data])
             enqueueSnackbar({
-                message: `Failed to reset password!`,
+                message: '重置密码失败！',
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -172,12 +172,12 @@ const ResetPasswordPage = () => {
                         </Alert>
                     )}
                     <Stack sx={{ gap: 1 }}>
-                        <Typography variant='h1'>Reset Password</Typography>
+                        <Typography variant='h1'>重置密码</Typography>
                         <Typography variant='body2' sx={{ color: theme.palette.grey[600] }}>
                             <Link style={{ color: theme.palette.primary.main }} to='/signin'>
-                                Back to Login
+                                返回登录
                             </Link>
-                            .
+                            。
                         </Typography>
                     </Stack>
                     <form onSubmit={validateAndSubmit}>
@@ -185,7 +185,7 @@ const ResetPasswordPage = () => {
                             <Box>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Typography>
-                                        Email<span style={{ color: 'red' }}>&nbsp;*</span>
+                                        邮箱<span style={{ color: 'red' }}>&nbsp;*</span>
                                     </Typography>
                                     <Typography align='left'></Typography>
                                     <div style={{ flexGrow: 1 }}></div>
@@ -200,14 +200,14 @@ const ResetPasswordPage = () => {
                             <Box>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Typography>
-                                        Reset Token<span style={{ color: 'red' }}>&nbsp;*</span>
+                                        重置令牌<span style={{ color: 'red' }}>&nbsp;*</span>
                                     </Typography>
                                     <div style={{ flexGrow: 1 }}></div>
                                 </div>
                                 <OutlinedInput
                                     fullWidth
                                     type='string'
-                                    placeholder='Paste in the reset token.'
+                                    placeholder='粘贴重置令牌'
                                     multiline={true}
                                     rows={3}
                                     inputParam={resetPasswordInput}
@@ -216,13 +216,13 @@ const ResetPasswordPage = () => {
                                     sx={{ mt: '8px' }}
                                 />
                                 <Typography variant='caption'>
-                                    <i>Please copy the token you received in your email.</i>
+                                    <i>请复制你在邮件中收到的令牌。</i>
                                 </Typography>
                             </Box>
                             <Box>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Typography>
-                                        New Password<span style={{ color: 'red' }}>&nbsp;*</span>
+                                        新密码<span style={{ color: 'red' }}>&nbsp;*</span>
                                     </Typography>
                                     <Typography align='left'></Typography>
                                     <div style={{ flexGrow: 1 }}></div>
@@ -234,16 +234,13 @@ const ResetPasswordPage = () => {
                                     showDialog={false}
                                 />
                                 <Typography variant='caption'>
-                                    <i>
-                                        Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase
-                                        letter, one digit, and one special character.
-                                    </i>
+                                    <i>密码至少8个字符，包含大小写字母、数字和特殊字符。</i>
                                 </Typography>
                             </Box>
                             <Box>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Typography>
-                                        Confirm Password<span style={{ color: 'red' }}>&nbsp;*</span>
+                                        确认密码<span style={{ color: 'red' }}>&nbsp;*</span>
                                     </Typography>
                                     <div style={{ flexGrow: 1 }}></div>
                                 </div>
@@ -254,12 +251,12 @@ const ResetPasswordPage = () => {
                                     showDialog={false}
                                 />
                                 <Typography variant='caption'>
-                                    <i>Confirm your new password. Must match the password typed above.</i>
+                                    <i>确认你的新密码，必须与上面输入的密码一致。</i>
                                 </Typography>
                             </Box>
 
                             <StyledButton variant='contained' style={{ borderRadius: 12, height: 40, marginRight: 5 }} type='submit'>
-                                Update Password
+                                更新密码
                             </StyledButton>
                         </Stack>
                     </form>

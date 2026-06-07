@@ -36,18 +36,18 @@ const UnauthorizedPage = () => {
                             />
                         </Box>
                         <Typography sx={{ mb: 2 }} variant='h4' component='div' fontWeight='bold'>
-                            403 Forbidden
+                            403 禁止访问
                         </Typography>
                         <Typography variant='body1' component='div' sx={{ mb: 2 }}>
-                            You do not have permission to access this page.
+                            你没有权限访问此页面。
                         </Typography>
                         {currentUser ? (
                             <Link to='/'>
-                                <StyledButton sx={{ px: 2, py: 1 }}>Back to Home</StyledButton>
+                                <StyledButton sx={{ px: 2, py: 1 }}>返回首页</StyledButton>
                             </Link>
                         ) : (
                             <Link to='/login'>
-                                <StyledButton sx={{ px: 2, py: 1 }}>Back to Login</StyledButton>
+                                <StyledButton sx={{ px: 2, py: 1 }}>返回登录</StyledButton>
                             </Link>
                         )}
                     </Stack>

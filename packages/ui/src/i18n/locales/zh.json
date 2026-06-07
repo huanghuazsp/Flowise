@@ -619,5 +619,118 @@
     "Override existing prompt with Chat Prompt Template. Human Message must includes {input} variable": "使用聊天提示模板覆盖现有提示。人类消息必须包含{input}变量",
     "Input Moderation": "输入审核",
     "Detect text that could generate harmful output and prevent it from being sent to the language model": "检测可能生成有害输出的文本并阻止其发送到语言模型",
-    "You are helpful assistant": "你是一个有帮助的助手"
+    "You are helpful assistant": "你是一个有帮助的助手",
+    "auth": {
+        "signIn": {
+            "title": "登录",
+            "emailLabel": "邮箱",
+            "passwordLabel": "密码",
+            "forgotPassword": "忘记密码？",
+            "loginButton": "登录",
+            "dontHaveAccount": "还没有账户？",
+            "signUpFree": "免费注册",
+            "haveInviteCode": "有邀请码？",
+            "signUpAccount": "注册账户",
+            "resendVerification": "重新发送验证邮件",
+            "verificationSent": "验证邮件已成功发送。",
+            "failedSendVerification": "发送验证邮件失败。",
+            "signInWithMicrosoft": "使用 Microsoft 登录",
+            "signInWithGoogle": "使用 Google 登录",
+            "signInWithAuth0": "使用 Auth0 by Okta 登录",
+            "signInWithGithub": "使用 Github 登录",
+            "or": "或"
+        },
+        "register": {
+            "title": "注册",
+            "fullName": "姓名",
+            "namePlaceholder": "显示名称",
+            "nameHelpText": "仅用于显示目的。",
+            "emailLabel": "邮箱",
+            "emailPlaceholder": "user@company.com",
+            "emailHelpText": "请使用有效的邮箱地址。将用作登录账号。",
+            "passwordLabel": "密码",
+            "passwordHelpText": "密码必须至少8个字符，包含至少一个小写字母、一个大写字母、一个数字和一个特殊字符。",
+            "confirmPassword": "确认密码",
+            "confirmPasswordHelpText": "确认你的密码。必须与上面输入的密码一致。",
+            "inviteCode": "邀请码",
+            "inviteCodePlaceholder": "粘贴邀请码。",
+            "inviteCodeHelpText": "请复制你在邮件中收到的令牌。",
+            "createAccount": "创建账户",
+            "alreadyHaveAccount": "已有账户？",
+            "signIn": "登录",
+            "or": "或",
+            "signInWithMicrosoft": "使用 Microsoft 登录",
+            "signInWithGoogle": "使用 Google 登录",
+            "signInWithAuth0": "使用 Auth0 by Okta 登录",
+            "signInWithGithub": "使用 Github 登录",
+            "registrationSuccessful": "注册成功。即将跳转到登录页面。",
+            "verifyEmail": "请点击我们发送到你邮箱的验证链接来完成注册",
+            "errorRegistering": "注册用户时出错。请联系管理员。",
+            "errorRegisteringCloud": "注册用户时出错。请重试。"
+        },
+        "forgotPassword": {
+            "ifForgotEmail": "如果你忘记了注册时使用的邮箱，请联系管理员。",
+            "instructionsSent": "密码重置说明已发送到邮箱。"
+        },
+        "resetPassword": {
+            "title": "重置密码",
+            "backToLogin": "返回登录",
+            "emailLabel": "邮箱",
+            "resetToken": "重置令牌",
+            "resetTokenPlaceholder": "粘贴重置令牌。",
+            "resetTokenHelpText": "请复制你在邮件中收到的令牌。",
+            "newPassword": "新密码",
+            "confirmPassword": "确认密码",
+            "confirmPasswordHelpText": "确认你的新密码。必须与上面输入的密码一致。",
+            "updatePassword": "更新密码",
+            "passwordResetSuccess": "密码重置成功",
+            "failedResetPassword": "重置密码失败！",
+            "tokenCannotBeBlank": "令牌不能为空！",
+            "passwordMismatch": "新密码和确认密码不匹配。"
+        },
+        "unauthorized": {
+            "title": "403 禁止访问",
+            "message": "你没有权限访问此页面。",
+            "backToHome": "返回首页",
+            "backToLogin": "返回登录"
+        },
+        "expired": {
+            "title": "您的企业许可证已过期",
+            "message": "请联系我们的支持团队续订许可证。",
+            "contactSupport": "联系支持"
+        },
+        "rateLimited": {
+            "title": "429 请求过多",
+            "message": "你在短时间内发出了过多请求。请等待 {{retryAfter}} 秒后再试。",
+            "backToHome": "返回首页"
+        },
+        "loginActivity": {
+            "title": "登录活动",
+            "activity": "活动",
+            "user": "用户",
+            "date": "日期",
+            "method": "方式",
+            "message": "消息",
+            "from": "从",
+            "to": "到",
+            "filterBy": "筛选",
+            "showing": "显示",
+            "records": "条记录",
+            "of": "/",
+            "loginSuccess": "登录成功",
+            "logoutSuccess": "登出成功",
+            "unknownUser": "未知用户",
+            "incorrectCredential": "凭证错误",
+            "userDisabled": "用户已禁用",
+            "noAssignedWorkspace": "未分配工作区",
+            "unknownActivity": "未知活动",
+            "emailPassword": "邮箱/密码"
+        },
+        "verifyEmail": {
+            "confirming": "正在确认邮箱变更...",
+            "confirmationFailed": "确认失败。",
+            "emailUpdated": "邮箱更新成功。",
+            "signInNewEmail": "请使用新邮箱地址登录。"
+        }
+    }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { ExecutionDetails } from './ExecutionDetails'
 import { omit } from 'lodash'
@@ -17,6 +18,7 @@ import { alpha } from '@mui/material/styles'
 // ==============================|| PublicExecutionDetails ||============================== //
 
 const PublicExecutionDetails = () => {
+    const { t } = useTranslation()
     const { id: executionId } = useParams()
     const theme = useTheme()
 

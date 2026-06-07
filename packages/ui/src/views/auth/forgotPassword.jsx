@@ -33,7 +33,7 @@ const ForgotPasswordPage = () => {
     useNotifier()
 
     const usernameInput = {
-        label: 'Username',
+        label: t('Email'),
         name: 'username',
         type: 'email',
         placeholder: 'user@company.com'
@@ -84,7 +84,7 @@ const ForgotPasswordPage = () => {
         if (forgotPasswordApi.data) {
             setResponseMsg({
                 type: 'success',
-                msg: 'Password reset instructions sent to the email.'
+                msg: t('auth.forgotPassword.instructionsSent', 'Password reset instructions sent to the email.')
             })
             setLoading(false)
         }
@@ -139,7 +139,7 @@ const ForgotPasswordPage = () => {
                                 />
                                 {isEnterpriseLicensed && (
                                     <Typography variant='caption'>
-                                        <i>If you forgot the email you used for signing up, please contact your administrator.</i>
+                                        <i>{t('auth.forgotPassword.ifForgotEmail')}</i>
                                     </Typography>
                                 )}
                             </Box>

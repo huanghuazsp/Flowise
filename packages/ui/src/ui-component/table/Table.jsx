@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import { TableContainer, Table, TableHead, TableCell, TableRow, TableBody, Paper, Chip, Stack, Typography } from '@mui/material'
 import { TooltipWithParser } from '@/ui-component/tooltip/TooltipWithParser'
 
 export const TableViewOnly = ({ columns, rows, sx }) => {
+    const { t } = useTranslation()
     // Helper function to safely render cell content
     const renderCellContent = (key, row) => {
         if (row[key] === null || row[key] === undefined) {

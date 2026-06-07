@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 // MUI
@@ -45,6 +46,7 @@ import promptApi from '@/api/prompt'
 import { HIDE_CANVAS_DIALOG, SHOW_CANVAS_DIALOG } from '@/store/actions'
 
 const NewLineToBr = ({ children = '' }) => {
+    const { t } = useTranslation()
     return children.split('\n').reduce(function (arr, line) {
         return arr.concat(line, <br />)
     }, [])

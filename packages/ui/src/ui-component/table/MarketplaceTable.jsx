@@ -237,7 +237,7 @@ export const MarketplaceTable = ({
                                                             <PermissionIconButton
                                                                 display={'feat:workspaces'}
                                                                 permissionId={'templates:custom-share'}
-                                                                title='Share'
+                                                                title={t('Share')}
                                                                 color='primary'
                                                                 onClick={() => onShare(row)}
                                                             >
@@ -247,7 +247,7 @@ export const MarketplaceTable = ({
                                                         {onDelete && (
                                                             <PermissionIconButton
                                                                 permissionId={'templates:custom-delete'}
-                                                                title='Delete'
+                                                                title={t('Delete')}
                                                                 color='error'
                                                                 onClick={() => onDelete(row)}
                                                             >

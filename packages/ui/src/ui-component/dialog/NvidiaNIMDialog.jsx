@@ -344,7 +344,7 @@ const NvidiaNIMDialog = ({ open, onClose, onComplete }) => {
                         <div>
                             <FormControl fullWidth sx={{ mt: 2 }}>
                                 <InputLabel>Model</InputLabel>
-                                <Select label='Model' value={imageTag} onChange={(e) => setImageTag(e.target.value)}>
+                                <Select label={t('Model')} value={imageTag} onChange={(e) => setImageTag(e.target.value)}>
                                     {Object.entries(modelOptions).map(([value, { label }]) => (
                                         <MenuItem key={value} value={value}>
                                             {label}

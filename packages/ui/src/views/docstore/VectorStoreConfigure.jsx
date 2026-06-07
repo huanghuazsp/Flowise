@@ -569,7 +569,7 @@ const VectorStoreConfigure = () => {
                                                 Upsert
                                             </Button>
                                         )}
-                                    <IconButton onClick={showUpsertHistoryDrawer} size='small' color='inherit' title='Upsert History'>
+                                    <IconButton onClick={showUpsertHistoryDrawer} size='small' color='inherit' title={t('Upsert History')}>
                                         <IconClock />
                                     </IconButton>
                                 </ViewHeader>

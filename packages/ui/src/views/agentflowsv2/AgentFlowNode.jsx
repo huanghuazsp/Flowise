@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { useContext, memo, useRef, useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -59,6 +60,7 @@ const StyledNodeToolbar = styled(NodeToolbar)(({ theme }) => ({
 // ===========================|| CANVAS NODE ||=========================== //
 
 const AgentFlowNode = ({ data }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
     const canvas = useSelector((state) => state.canvas)
@@ -195,7 +197,7 @@ const AgentFlowNode = ({ data }) => {
             } else if (componentNode.badge === 'DEPRECATING') {
                 setWarningMessage(
                     componentNode?.deprecateMessage ??
-                        'This node will be deprecated in the next release. Change to a new node tagged with NEW'
+                        t('This node will be deprecated in the next release. Change to a new node tagged with NEW')
                 )
             } else if (componentNode.warning) {
                 setWarningMessage(componentNode.warning)
@@ -212,7 +214,7 @@ const AgentFlowNode = ({ data }) => {
                     {data.name !== 'startAgentflow' && (
                         <IconButton
                             size={'small'}
-                            title='Duplicate'
+                            title={t('Duplicate')}
                             onClick={() => {
                                 duplicateNode(data.id)
                             }}
@@ -228,7 +230,7 @@ const AgentFlowNode = ({ data }) => {
                     )}
                     <IconButton
                         size={'small'}
-                        title='Delete'
+                        title={t('Delete')}
                         onClick={() => {
                             deleteNode(data.id)
                         }}
@@ -243,7 +245,7 @@ const AgentFlowNode = ({ data }) => {
                     </IconButton>
                     <IconButton
                         size={'small'}
-                        title='Info'
+                        title={t('Info')}
                         onClick={() => {
                             setInfoDialogProps({ data })
                             setShowInfoDialog(true)

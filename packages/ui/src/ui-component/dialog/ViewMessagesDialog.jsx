@@ -152,7 +152,7 @@ const ConfirmDeleteMessageDialog = ({ show, dialogProps, onCancel, onConfirm }) 
                 {dialogProps.isChatflow && (
                     <FormControlLabel
                         control={<Checkbox checked={hardDelete} onChange={(event) => setHardDelete(event.target.checked)} />}
-                        label='Remove messages from 3rd party Memory Node'
+                        label={t('Remove messages from 3rd party Memory Node')}
                     />
                 )}
             </DialogContent>
@@ -1028,11 +1028,11 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
                             marginTop: 20
                         }}
                     >
-                        <StatsCard title='Total Sessions' stat={`${stats.totalSessions ?? 0}`} />
-                        <StatsCard title='Total Messages' stat={`${stats.totalMessages ?? 0}`} />
-                        <StatsCard title='Total Feedback Received' stat={`${stats.totalFeedback ?? 0}`} />
+                        <StatsCard title={t('Total Sessions')} stat={`${stats.totalSessions ?? 0}`} />
+                        <StatsCard title={t('Total Messages')} stat={`${stats.totalMessages ?? 0}`} />
+                        <StatsCard title={t('Total Feedback Received')} stat={`${stats.totalFeedback ?? 0}`} />
                         <StatsCard
-                            title='Positive Feedback'
+                            title={t('Positive Feedback')}
                             stat={`${(((stats.positiveFeedback ?? 0) / (stats.totalFeedback ?? 1)) * 100 || 0).toFixed(2)}%`}
                         />
                     </div>
@@ -1157,7 +1157,7 @@ const ViewMessagesDialog = ({ show, dialogProps, onCancel }) => {
                                                 alignItems: 'end'
                                             }}
                                         >
-                                            <Tooltip title='Clear Message'>
+                                            <Tooltip title={t('Clear Message')}>
                                                 <IconButton color='error' onClick={() => clearChat(chatMessages[1])}>
                                                     <IconEraser />
                                                 </IconButton>

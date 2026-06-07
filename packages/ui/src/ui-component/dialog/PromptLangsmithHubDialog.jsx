@@ -269,7 +269,7 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
                             size='small'
                             value={modelName}
                             onChange={handleModelChange}
-                            input={<OutlinedInput label='Model' />}
+                            input={<OutlinedInput label={t('Model')} />}
                             renderValue={(selected) => selected.map((x) => x.name).join(', ')}
                             endAdornment={
                                 modelName.length ? (
@@ -307,7 +307,7 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
                             size='small'
                             value={usecase}
                             onChange={handleUsecaseChange}
-                            input={<OutlinedInput label='Usecase' />}
+                            input={<OutlinedInput label={t('Usecases')} />}
                             renderValue={(selected) => selected.map((x) => x.name).join(', ')}
                             endAdornment={
                                 usecase.length ? (
@@ -344,7 +344,7 @@ const PromptLangsmithHubDialog = ({ promptType, show, onCancel, onSubmit }) => {
                             size='small'
                             value={language}
                             onChange={handleLanguageChange}
-                            input={<OutlinedInput label='language' />}
+                            input={<OutlinedInput label={t('language')} />}
                             renderValue={(selected) => selected.map((x) => x.name).join(', ')}
                             endAdornment={
                                 language.length ? (

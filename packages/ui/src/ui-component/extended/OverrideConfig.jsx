@@ -408,7 +408,7 @@ const OverrideConfig = ({ dialogProps, hideTitle = false }) => {
                 </Typography>
             )}
             <Stack direction='column' spacing={2} sx={{ width: '100%' }}>
-                <SwitchInput label='Enable Override Configuration' onChange={setOverrideConfigStatus} value={overrideConfigStatus} />
+                <SwitchInput label={t('Enable Override Configuration')} onChange={setOverrideConfigStatus} value={overrideConfigStatus} />
                 {overrideConfigStatus && (
                     <>
                         {nodeOverrides && nodeConfig && (

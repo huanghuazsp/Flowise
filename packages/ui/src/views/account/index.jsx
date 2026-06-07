@@ -207,7 +207,7 @@ const AccountSettings = () => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: 'Failed to access billing portal',
+                message: t('Failed to access billing portal'),
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -238,7 +238,7 @@ const AccountSettings = () => {
                     payload.emailChangePending &&
                     `Check your current email (${payload.user.email}) to confirm the change to ${payload.pendingEmail}.`
                 enqueueSnackbar({
-                    message: pendingMsg || 'Profile updated',
+                    message: pendingMsg || t('Profile updated'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -255,7 +255,7 @@ const AccountSettings = () => {
             } else if (payload) {
                 store.dispatch(userProfileUpdated(payload))
                 enqueueSnackbar({
-                    message: 'Profile updated',
+                    message: t('Profile updated'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -272,7 +272,7 @@ const AccountSettings = () => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to update profile: ${
+                message: `${t('Failed to update profile:')} ${
                     typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                 }`,
                 options: {
@@ -293,10 +293,10 @@ const AccountSettings = () => {
         try {
             const validationErrors = []
             if (!oldPassword) {
-                validationErrors.push('Old Password cannot be left blank')
+                validationErrors.push(t('Old Password cannot be left blank'))
             }
             if (newPassword !== confirmPassword) {
-                validationErrors.push('New Password and Confirm Password do not match')
+                validationErrors.push(t('New Password and Confirm Password do not match'))
             }
             const passwordErrors = validatePassword(newPassword)
             if (passwordErrors.length > 0) {
@@ -335,7 +335,7 @@ const AccountSettings = () => {
                 setConfirmPassword('')
                 await logoutApi.request()
                 enqueueSnackbar({
-                    message: 'Password updated',
+                    message: t('Password updated'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -349,7 +349,7 @@ const AccountSettings = () => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to update password: ${
+                message: `${t('Failed to update password:')} ${
                     typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                 }`,
                 options: {
@@ -396,7 +396,7 @@ const AccountSettings = () => {
         } catch (error) {
             console.error('Error updating seats:', error)
             enqueueSnackbar({
-                message: `Failed to update seats: ${
+                message: `${t('Failed to update seats:')} ${
                     typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                 }`,
                 options: {
@@ -450,7 +450,7 @@ const AccountSettings = () => {
     return (
         <MainCard maxWidth='md'>
             <Stack flexDirection='column' sx={{ gap: 4 }}>
-                <ViewHeader title='Account Settings' />
+                <ViewHeader title={t('Account Settings')} />
                 {isLoading && !getUserByIdApi.data ? (
                     <Box display='flex' flexDirection='column' gap={gridSpacing}>
                         <Skeleton width='25%' height={32} />

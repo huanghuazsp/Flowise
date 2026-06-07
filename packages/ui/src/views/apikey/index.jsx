@@ -3,6 +3,7 @@ import moment from 'moment/moment'
 import * as PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import {
@@ -219,6 +220,7 @@ const APIKey = () => {
 
     const dispatch = useDispatch()
     useNotifier()
+    const { t } = useTranslation()
     const { error, setError } = useError()
 
     const enqueueSnackbar = (...args) => dispatch(enqueueSnackbarAction(...args))
@@ -283,10 +285,10 @@ const APIKey = () => {
 
     const addNew = () => {
         const dialogProp = {
-            title: 'Add New API Key',
+            title: t('Add New API Key'),
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add',
+            cancelButtonName: t('Cancel'),
+            confirmButtonName: t('Add'),
             customBtnId: 'btn_confirmAddingApiKey'
         }
         setDialogProps(dialogProp)
@@ -295,10 +297,10 @@ const APIKey = () => {
 
     const edit = (key) => {
         const dialogProp = {
-            title: 'Edit API Key',
+            title: t('Edit API Key'),
             type: 'EDIT',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Save',
+            cancelButtonName: t('Cancel'),
+            confirmButtonName: t('Save'),
             customBtnId: 'btn_confirmEditingApiKey',
             key
         }
@@ -308,13 +310,13 @@ const APIKey = () => {
 
     const deleteKey = async (key) => {
         const confirmPayload = {
-            title: `Delete`,
+            title: t('Delete'),
             description:
                 key.chatFlows.length === 0
-                    ? `Delete key [${key.keyName}] ? `
-                    : `Delete key [${key.keyName}] ?\n There are ${key.chatFlows.length} chatflows using this key.`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel',
+                    ? `${t('Delete key')} [${key.keyName}] ? `
+                    : `${t('Delete key')} [${key.keyName}] ?\n ${t('there are')} ${key.chatFlows.length} ${t('chatflows using this key')}.`,
+            confirmButtonName: t('Delete'),
+            cancelButtonName: t('Cancel'),
             customBtnId: 'btn_initiateDeleteApiKey'
         }
         const isConfirmed = await confirm(confirmPayload)
@@ -324,7 +326,7 @@ const APIKey = () => {
                 const deleteResp = await apiKeyApi.deleteAPI(key.id)
                 if (deleteResp.data) {
                     enqueueSnackbar({
-                        message: 'API key deleted',
+                        message: t('API key deleted'),
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -339,7 +341,7 @@ const APIKey = () => {
                 }
             } catch (error) {
                 enqueueSnackbar({
-                    message: `Failed to delete API key: ${
+                    message: `${t('Failed to delete API key:')} ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -389,9 +391,9 @@ const APIKey = () => {
                         <ViewHeader
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search API Keys'
-                            title='API Keys'
-                            description='Flowise API & SDK authentication keys'
+                            searchPlaceholder={t('Search API Keys')}
+                            title={t('API Keys')}
+                            description={t('Flowise API & SDK authentication keys')}
                         >
                             <StyledPermissionButton
                                 permissionId={'apikeys:create'}
@@ -401,7 +403,7 @@ const APIKey = () => {
                                 startIcon={<IconPlus />}
                                 id='btn_createApiKey'
                             >
-                                Create Key
+                                {t('Create Key')}
                             </StyledPermissionButton>
                         </ViewHeader>
                         {!isLoading && apiKeys?.length <= 0 ? (
@@ -413,7 +415,7 @@ const APIKey = () => {
                                         alt='APIEmptySVG'
                                     />
                                 </Box>
-                                <div>No API Keys Yet</div>
+                                <div>{t('No API Keys Yet')}</div>
                             </Stack>
                         ) : (
                             <>
@@ -431,11 +433,11 @@ const APIKey = () => {
                                             }}
                                         >
                                             <TableRow>
-                                                <StyledTableCell>Key Name</StyledTableCell>
-                                                <StyledTableCell>API Key</StyledTableCell>
-                                                <StyledTableCell>Permissions</StyledTableCell>
-                                                <StyledTableCell>Usage</StyledTableCell>
-                                                <StyledTableCell>Updated</StyledTableCell>
+                                                <StyledTableCell>{t('Key Name')}</StyledTableCell>
+                                                <StyledTableCell>{t('API Key')}</StyledTableCell>
+                                                <StyledTableCell>{t('Permissions')}</StyledTableCell>
+                                                <StyledTableCell>{t('Usage')}</StyledTableCell>
+                                                <StyledTableCell>{t('Updated')}</StyledTableCell>
                                                 <Available permission={'apikeys:update,apikeys:create'}>
                                                     <StyledTableCell> </StyledTableCell>
                                                 </Available>

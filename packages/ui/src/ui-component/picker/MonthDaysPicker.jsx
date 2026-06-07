@@ -78,12 +78,7 @@ export const MonthDaysPicker = ({ value, onChange, disabled = false }) => {
         )
         if (isLastDay) {
             return (
-                <Tooltip
-                    key={valueToken}
-                    title='Always runs on the last day of every month — automatically resolves to 28, 29, 30, or 31 (handles short months and leap years). Unlike picking 31, this fires every month.'
-                    placement='top'
-                    arrow
-                >
+                <Tooltip key={valueToken} title={t('Always runs on the last day of every month')} placement='top' arrow>
                     <span style={{ gridColumn: 'span 2', display: 'inline-flex' }}>{chip}</span>
                 </Tooltip>
             )

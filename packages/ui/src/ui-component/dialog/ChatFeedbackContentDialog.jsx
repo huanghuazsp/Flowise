@@ -54,7 +54,7 @@ const ChatFeedbackContentDialog = ({ show, onCancel, onConfirm }) => {
                         multiline={true}
                         name='feedbackContentInput'
                         onChange={onChange}
-                        placeholder='What do you think of the response?'
+                        placeholder={t('What do you think of the response?')}
                         rows={4}
                         value={feedbackContent}
                         sx={{ width: '100%' }}

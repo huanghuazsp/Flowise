@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { Box, Button, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material'
@@ -47,6 +48,7 @@ const getDocStoreActionButtonSx = (theme) => ({
 })
 
 const Documents = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -328,9 +330,9 @@ const Documents = () => {
                     <ViewHeader
                         onSearchChange={onSearchChange}
                         search={hasDocStores}
-                        searchPlaceholder='Search Name'
-                        title='Document Store'
-                        description='Store and upsert documents for LLM retrieval (RAG)'
+                        searchPlaceholder={t('Search Name')}
+                        title={t('Document Store')}
+                        description={t('Store and upsert documents for LLM retrieval (RAG)')}
                     >
                         {hasDocStores && (
                             <ToggleButtonGroup
@@ -348,7 +350,7 @@ const Documents = () => {
                                     }}
                                     variant='contained'
                                     value='card'
-                                    title='Card View'
+                                    title={t('Card View')}
                                 >
                                     <IconLayoutGrid />
                                 </ToggleButton>
@@ -360,7 +362,7 @@ const Documents = () => {
                                     }}
                                     variant='contained'
                                     value='list'
-                                    title='List View'
+                                    title={t('List View')}
                                 >
                                     <IconList />
                                 </ToggleButton>
@@ -374,7 +376,7 @@ const Documents = () => {
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
                         >
-                            Add New
+                            {t('Add New')}
                         </StyledPermissionButton>
                     </ViewHeader>
                     {!hasDocStores ? (
@@ -386,7 +388,7 @@ const Documents = () => {
                                     alt='doc_store_empty'
                                 />
                             </Box>
-                            <div>No Document Stores Created Yet</div>
+                            <div>{t('No Document Stores Created Yet')}</div>
                         </Stack>
                     ) : (
                         <React.Fragment>

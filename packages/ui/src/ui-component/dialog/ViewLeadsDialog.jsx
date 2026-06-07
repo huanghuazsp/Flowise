@@ -136,7 +136,7 @@ const ViewLeadsDialog = ({ show, dialogProps, onCancel }) => {
                             }
                         }}
                         variant='outlined'
-                        placeholder='Search Name or Email or Phone'
+                        placeholder={t('Search Name or Email or Phone')}
                         onChange={onSearchChange}
                         startAdornment={
                             <Box

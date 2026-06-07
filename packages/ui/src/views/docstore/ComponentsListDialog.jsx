@@ -99,7 +99,7 @@ const ComponentsListDialog = ({ show, dialogProps, onCancel, apiCall, onSelected
                                         color: theme.palette.grey[900]
                                     }
                                 }}
-                                title='Clear Search'
+                                title={t('Clear Search')}
                             >
                                 <IconX
                                     stroke={1.5}

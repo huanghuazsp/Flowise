@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
@@ -32,6 +33,7 @@ import {
 } from '@/store/actions'
 
 const AddEditWorkspaceDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
 
     const dispatch = useDispatch()
@@ -79,7 +81,7 @@ const AddEditWorkspaceDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
     const addNewWorkspace = async () => {
         if (workspaceName === 'Default Workspace' || workspaceName === 'Personal Workspace') {
             enqueueSnackbar({
-                message: 'Workspace name cannot be Default Workspace or Personal Workspace - this is a reserved name',
+                message: t('Workspace name cannot be Default Workspace or Personal Workspace - this is a reserved name'),
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -104,7 +106,7 @@ const AddEditWorkspaceDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             const createResp = await workspaceApi.createWorkspace(obj)
             if (createResp.data) {
                 enqueueSnackbar({
-                    message: 'New Workspace added',
+                    message: t('New Workspace added'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -150,7 +152,7 @@ const AddEditWorkspaceDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             if (saveResp.data) {
                 store.dispatch(workspaceNameUpdated(saveResp.data))
                 enqueueSnackbar({
-                    message: 'Workspace saved',
+                    message: t('Workspace saved'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -195,7 +197,7 @@ const AddEditWorkspaceDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <IconUsersGroup style={{ marginRight: '10px' }} />
-                    {dialogProps.type === 'ADD' ? 'Add Workspace' : 'Edit Workspace'}
+                    {dialogProps.type === 'ADD' ? t('Add Workspace') : t('Edit Workspace')}
                 </div>
             </DialogTitle>
             <DialogContent>

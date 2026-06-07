@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { cloneDeep, set } from 'lodash'
 import { memo, useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -76,6 +77,7 @@ MemoizedFullPageChat.propTypes = {
 }
 
 const CustomAssistantConfigurePreview = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const theme = useTheme()
     const settingsRef = useRef()
@@ -152,7 +154,7 @@ const CustomAssistantConfigurePreview = () => {
 
     const displayWarning = () => {
         enqueueSnackbar({
-            message: 'Please fill in all mandatory fields.',
+            message: t('Please fill in all mandatory fields.'),
             options: {
                 key: new Date().getTime() + Math.random(),
                 variant: 'warning',
@@ -269,7 +271,7 @@ const CustomAssistantConfigurePreview = () => {
                     if (saveAssistantResp.data) {
                         setLoading(false)
                         enqueueSnackbar({
-                            message: 'Assistant saved successfully',
+                            message: t('Assistant saved successfully'),
                             options: {
                                 key: new Date().getTime() + Math.random(),
                                 variant: 'success',
@@ -512,14 +514,14 @@ const CustomAssistantConfigurePreview = () => {
             handleDeleteFlow()
         } else if (setting === 'viewMessages') {
             setViewMessagesDialogProps({
-                title: 'View Messages',
+                title: t('View Messages'),
                 chatflow: canvas.chatflow,
                 isChatflow: false
             })
             setViewMessagesDialogOpen(true)
         } else if (setting === 'viewLeads') {
             setViewLeadsDialogProps({
-                title: 'View Leads',
+                title: t('View Leads'),
                 chatflow: canvas.chatflow
             })
             setViewLeadsDialogOpen(true)
@@ -1030,7 +1032,7 @@ const CustomAssistantConfigurePreview = () => {
                                                 </IconButton>
                                                 {selectedChatModel?.name && (
                                                     <Button
-                                                        title='Generate instructions using model'
+                                                        title={t('Generate instructions using model')}
                                                         sx={{ borderRadius: 20 }}
                                                         size='small'
                                                         variant='text'
@@ -1062,7 +1064,9 @@ const CustomAssistantConfigurePreview = () => {
                                         >
                                             <Stack sx={{ position: 'relative', alignItems: 'center' }} direction='row'>
                                                 <Typography>Knowledge (Document Stores)</Typography>
-                                                <TooltipWithParser title='Give your assistant context about different document sources. Document stores must be upserted in advance.' />
+                                                <TooltipWithParser
+                                                    title={t('Give your assistant context about different document sources')}
+                                                />
                                             </Stack>
                                             <MultiDropdown
                                                 key={JSON.stringify(selectedDocumentStores)}
@@ -1082,7 +1086,7 @@ const CustomAssistantConfigurePreview = () => {
                                                     <Typography>
                                                         Describe Knowledge<span style={{ color: 'red' }}>&nbsp;*</span>
                                                     </Typography>
-                                                    <TooltipWithParser title='Describe what the knowledge base is about, this is useful for the AI to know when and how to search for correct information' />
+                                                    <TooltipWithParser title={t('Describe what the knowledge base is about')} />
                                                 </Stack>
                                             )}
                                             {selectedDocumentStores.map((ds, index) => {
@@ -1117,7 +1121,7 @@ const CustomAssistantConfigurePreview = () => {
                                                             <div style={{ flex: 1 }}></div>
                                                             {selectedChatModel?.name && (
                                                                 <Button
-                                                                    title='Generate description using model'
+                                                                    title={t('Generate description using model')}
                                                                     sx={{ borderRadius: 20 }}
                                                                     size='small'
                                                                     variant='text'
@@ -1142,7 +1146,11 @@ const CustomAssistantConfigurePreview = () => {
                                                         />
                                                         <Stack sx={{ mt: 2, position: 'relative', alignItems: 'center' }} direction='row'>
                                                             <Typography>Return Source Documents</Typography>
-                                                            <TooltipWithParser title='Return the actual source documents that were used to answer the question' />
+                                                            <TooltipWithParser
+                                                                title={t(
+                                                                    'Return the actual source documents that were used to answer the question'
+                                                                )}
+                                                            />
                                                         </Stack>
                                                         <SwitchInput
                                                             value={ds.returnSourceDocuments ?? false}
@@ -1191,7 +1199,7 @@ const CustomAssistantConfigurePreview = () => {
                                         >
                                             <Stack sx={{ position: 'relative', alignItems: 'center' }} direction='row'>
                                                 <Typography>Tools</Typography>
-                                                <TooltipWithParser title='Tools are actions that your assistant can perform' />
+                                                <TooltipWithParser title={t('Tools are actions that your assistant can perform')} />
                                             </Stack>
                                             {selectedTools.map((tool, index) => {
                                                 return (

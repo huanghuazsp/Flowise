@@ -20,10 +20,12 @@ import { baseURL } from '@/store/constant'
 import { IconTrash, IconCopy, IconInfoCircle, IconAlertTriangle } from '@tabler/icons-react'
 import { flowContext } from '@/store/context/ReactFlowContext'
 import LlamaindexPNG from '@/assets/images/llamaindex.png'
+import { useTranslation } from 'react-i18next'
 
 // ===========================|| CANVAS NODE ||=========================== //
 
 const CanvasNode = ({ data }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const canvas = useSelector((state) => state.canvas)
     const { deleteNode, duplicateNode } = useContext(flowContext)
@@ -80,7 +82,7 @@ const CanvasNode = ({ data }) => {
             } else if (componentNode.badge === 'DEPRECATING') {
                 setWarningMessage(
                     componentNode?.deprecateMessage ??
-                        'This node will be deprecated in the next release. Change to a new node tagged with NEW'
+                        t('This node will be deprecated in the next release. Change to a new node tagged with NEW')
                 )
             } else if (componentNode.warning) {
                 setWarningMessage(componentNode.warning)
@@ -114,7 +116,7 @@ const CanvasNode = ({ data }) => {
                             }}
                         >
                             <IconButton
-                                title='Duplicate'
+                                title={t('Duplicate')}
                                 onClick={() => {
                                     duplicateNode(data.id)
                                 }}
@@ -134,7 +136,7 @@ const CanvasNode = ({ data }) => {
                                 <IconTrash />
                             </IconButton>
                             <IconButton
-                                title='Info'
+                                title={t('Info')}
                                 onClick={() => {
                                     setInfoDialogProps({ data })
                                     setShowInfoDialog(true)

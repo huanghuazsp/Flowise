@@ -678,7 +678,7 @@ const InviteUsersDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
                             getOptionLabel={(option) => option.label || ''}
                             onChange={handleWorkspaceChange}
                             options={workspaces}
-                            renderInput={(params) => <TextField {...params} variant='outlined' placeholder='Select Workspace' />}
+                            renderInput={(params) => <TextField {...params} variant='outlined' placeholder={t('Select Workspace')} />}
                             sx={{ mt: 0.5 }}
                             value={getWorkspaceValue()}
                             PopperComponent={StyledPopper}
@@ -692,7 +692,7 @@ const InviteUsersDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
                             getOptionLabel={(option) => option.label || ''}
                             onChange={handleRoleChange}
                             options={availableRoles}
-                            renderInput={(params) => <TextField {...params} variant='outlined' placeholder='Select Role' />}
+                            renderInput={(params) => <TextField {...params} variant='outlined' placeholder={t('Select Role')} />}
                             sx={{ mt: 0.5 }}
                             value={getRoleValue()}
                             PopperComponent={StyledPopper}

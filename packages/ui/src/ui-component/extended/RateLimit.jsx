@@ -159,7 +159,7 @@ const RateLimit = ({ dialogProps, hideTitle = false }) => {
                     />
                 </Typography>
             )}
-            <SwitchInput label='Enable Rate Limit' onChange={handleChange} value={rateLimitStatus} />
+            <SwitchInput label={t('Enable Rate Limit')} onChange={handleChange} value={rateLimitStatus} />
             {rateLimitStatus && (
                 <Stack direction='column' spacing={2} sx={{ width: '100%' }}>
                     {textField(limitMax, 'limitMax', 'Message Limit per Duration', 'number', '5')}

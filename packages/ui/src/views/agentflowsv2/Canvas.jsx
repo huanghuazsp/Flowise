@@ -6,6 +6,7 @@ import { useReward } from 'react-rewards'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
     REMOVE_DIRTY,
     SET_DIRTY,
@@ -67,6 +68,7 @@ const edgeTypes = { agentFlow: AgentFlowEdge }
 // ==============================|| CANVAS ||============================== //
 
 const AgentflowCanvas = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const navigate = useNavigate()
     const customization = useSelector((state) => state.customization)
@@ -319,7 +321,7 @@ const AgentflowCanvas = () => {
 
             if (nodeData.name === 'startAgentflow' && nodes.find((node) => node.data.name === 'startAgentflow')) {
                 enqueueSnackbar({
-                    message: 'Only one start node is allowed',
+                    message: t('Only one start node is allowed'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'error',
@@ -373,7 +375,7 @@ const AgentflowCanvas = () => {
                     // We can't have nested iteration nodes
                     if (nodeData.name === 'iterationAgentflow') {
                         enqueueSnackbar({
-                            message: 'Nested iteration node is not supported yet',
+                            message: t('Nested iteration node is not supported yet'),
                             options: {
                                 key: new Date().getTime() + Math.random(),
                                 variant: 'error',
@@ -391,7 +393,7 @@ const AgentflowCanvas = () => {
                     // We can't have human input node inside iteration node
                     if (nodeData.name === 'humanInputAgentflow') {
                         enqueueSnackbar({
-                            message: 'Human input node is not supported inside Iteration node',
+                            message: t('Human input node is not supported inside Iteration node'),
                             options: {
                                 key: new Date().getTime() + Math.random(),
                                 variant: 'error',
@@ -649,7 +651,7 @@ const AgentflowCanvas = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [templateFlowData])
 
-    usePrompt('You have unsaved changes! Do you want to navigate away?', canvasDataStore.isDirty)
+    usePrompt(t('You have unsaved changes! Do you want to navigate away?'), canvasDataStore.isDirty)
 
     const [chatPopupOpen, setChatPopupOpen] = useState(false)
 
@@ -752,7 +754,7 @@ const AgentflowCanvas = () => {
                                         onClick={() => {
                                             setIsSnappingEnabled(!isSnappingEnabled)
                                         }}
-                                        title='toggle snapping'
+                                        title={t('toggle snapping')}
                                         aria-label='toggle snapping'
                                     >
                                         {isSnappingEnabled ? <IconMagnetFilled /> : <IconMagnetOff />}
@@ -762,7 +764,7 @@ const AgentflowCanvas = () => {
                                         onClick={() => {
                                             setIsBackgroundEnabled(!isBackgroundEnabled)
                                         }}
-                                        title='toggle background'
+                                        title={t('toggle background')}
                                         aria-label='toggle background'
                                     >
                                         {isBackgroundEnabled ? <IconArtboard /> : <IconArtboardOff />}
@@ -804,7 +806,7 @@ const AgentflowCanvas = () => {
                                         }}
                                         size='small'
                                         aria-label='sync'
-                                        title='Sync Nodes'
+                                        title={t('Sync Nodes')}
                                         onClick={() => syncNodes()}
                                     >
                                         <IconRefreshAlert />

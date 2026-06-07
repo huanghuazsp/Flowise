@@ -564,7 +564,7 @@ const DocumentStoreDetails = () => {
                                         disabled={documentStore?.totalChunks <= 0 || documentStore?.status !== 'UPSERTED'}
                                         onClick={() => onStoreRefresh(documentStore.id)}
                                         disableRipple
-                                        title='Re-process all loaders and upsert all chunks'
+                                        title={t('Re-process all loaders and upsert all chunks')}
                                     >
                                         <RefreshIcon />
                                         Refresh

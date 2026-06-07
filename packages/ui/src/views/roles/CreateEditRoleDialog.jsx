@@ -387,10 +387,7 @@ const CreateEditRoleDialog = ({ show, dialogProps, onCancel, onConfirm, setError
                                                         {permission.value}
                                                         {(permission.key === 'workspace:export' ||
                                                             permission.key === 'workspace:import') && (
-                                                            <Tooltip
-                                                                title='Administrative privilege: Performs workspace-level actions with implicit access to all contained resources. Intended for backup/restore and migration operations. Restrict to authorized administrators only.'
-                                                                placement='right'
-                                                            >
+                                                            <Tooltip title={t('Administrative privilege')} placement='right'>
                                                                 <IconAlertTriangle size={16} color='orange' style={{ flexShrink: 0 }} />
                                                             </Tooltip>
                                                         )}

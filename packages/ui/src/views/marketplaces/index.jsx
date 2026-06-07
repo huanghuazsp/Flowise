@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import {
@@ -77,6 +78,7 @@ const Marketplace = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useNotifier()
+    const { t } = useTranslation()
 
     const theme = useTheme()
     const { error, setError } = useError()
@@ -219,7 +221,7 @@ const Marketplace = () => {
     const onDeleteCustomTemplate = async (template) => {
         const confirmPayload = {
             title: `Delete`,
-            description: `Delete Custom Template ${template.name}?`,
+            description: `${t('Delete Custom Template')} ${template.name}?`,
             confirmButtonName: 'Delete',
             cancelButtonName: 'Cancel'
         }
@@ -230,7 +232,7 @@ const Marketplace = () => {
                 const deleteResp = await marketplacesApi.deleteCustomTemplate(template.id)
                 if (deleteResp.data) {
                     enqueueSnackbar({
-                        message: 'Custom Template deleted successfully!',
+                        message: t('Custom Template deleted successfully!'),
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -245,7 +247,7 @@ const Marketplace = () => {
                 }
             } catch (error) {
                 enqueueSnackbar({
-                    message: `Failed to delete custom template: ${
+                    message: `${t('Failed to delete custom template:')} ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -494,7 +496,7 @@ const Marketplace = () => {
                                             multiple
                                             value={badgeFilter}
                                             onChange={handleBadgeFilterChange}
-                                            input={<OutlinedInput label='Tag' />}
+                                            input={<OutlinedInput label={t('Tag')} />}
                                             renderValue={(selected) => selected.join(', ')}
                                             MenuProps={MenuProps}
                                             sx={getSelectStyles(theme.palette.grey[900] + 25, theme?.customization?.isDarkMode)}
@@ -530,7 +532,7 @@ const Marketplace = () => {
                                             multiple
                                             value={typeFilter}
                                             onChange={handleTypeFilterChange}
-                                            input={<OutlinedInput label='Type' />}
+                                            input={<OutlinedInput label={t('Type')} />}
                                             renderValue={(selected) => selected.join(', ')}
                                             MenuProps={MenuProps}
                                             sx={getSelectStyles(theme.palette.grey[900] + 25, theme?.customization?.isDarkMode)}
@@ -566,7 +568,7 @@ const Marketplace = () => {
                                             multiple
                                             value={frameworkFilter}
                                             onChange={handleFrameworkFilterChange}
-                                            input={<OutlinedInput label='Framework' />}
+                                            input={<OutlinedInput label={t('Framework')} />}
                                             renderValue={(selected) => selected.join(', ')}
                                             MenuProps={MenuProps}
                                             sx={getSelectStyles(theme.palette.grey[900] + 25, theme?.customization?.isDarkMode)}
@@ -587,9 +589,9 @@ const Marketplace = () => {
                             }
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Name/Description/Node'
-                            title='Marketplace'
-                            description='Explore and use pre-built templates'
+                            searchPlaceholder={t('Search Name/Description/Node')}
+                            title={t('Marketplace')}
+                            description={t('Explore and use pre-built templates')}
                         >
                             <ToggleButtonGroup
                                 sx={{ borderRadius: 2, height: '100%' }}
@@ -606,7 +608,7 @@ const Marketplace = () => {
                                     }}
                                     variant='contained'
                                     value='card'
-                                    title='Card View'
+                                    title={t('Card View')}
                                 >
                                     <IconLayoutGrid />
                                 </ToggleButton>
@@ -618,7 +620,7 @@ const Marketplace = () => {
                                     }}
                                     variant='contained'
                                     value='list'
-                                    title='List View'
+                                    title={t('List View')}
                                 >
                                     <IconList />
                                 </ToggleButton>
@@ -627,8 +629,8 @@ const Marketplace = () => {
                         {hasPermission('templates:marketplace') && hasPermission('templates:custom') && (
                             <Stack direction='row' justifyContent='space-between' sx={{ mb: 2 }}>
                                 <Tabs value={activeTabValue} onChange={handleTabChange} textColor='primary' aria-label='tabs'>
-                                    <PermissionTab permissionId='templates:marketplace' value={0} label='Community Templates' />
-                                    <PermissionTab permissionId='templates:custom' value={1} label='My Templates' />
+                                    <PermissionTab permissionId='templates:marketplace' value={0} label={t('Community Templates')} />
+                                    <PermissionTab permissionId='templates:custom' value={1} label={t('My Templates')} />
                                 </Tabs>
                                 <Autocomplete
                                     id='useCases'
@@ -650,7 +652,7 @@ const Marketplace = () => {
                                             </li>
                                         )
                                     }}
-                                    renderInput={(params) => <TextField {...params} label='Usecases' />}
+                                    renderInput={(params) => <TextField {...params} label={t('Usecases')} />}
                                     sx={{
                                         width: 300
                                     }}
@@ -794,7 +796,7 @@ const Marketplace = () => {
                                                     alt='WorkflowEmptySVG'
                                                 />
                                             </Box>
-                                            <div>No Marketplace Yet</div>
+                                            <div>{t('No Marketplace Yet')}</div>
                                         </Stack>
                                     )}
                             </TabPanel>
@@ -835,7 +837,7 @@ const Marketplace = () => {
                                         onClick={() => clearAllUsecases()}
                                         startIcon={<IconX />}
                                     >
-                                        Clear All
+                                        {t('Clear All')}
                                     </Button>
                                 )}
                                 {!view || view === 'card' ? (
@@ -927,7 +929,7 @@ const Marketplace = () => {
                                                 alt='WorkflowEmptySVG'
                                             />
                                         </Box>
-                                        <div>No Saved Custom Templates</div>
+                                        <div>{t('No Saved Custom Templates')}</div>
                                     </Stack>
                                 )}
                             </TabPanel>

@@ -665,7 +665,7 @@ const CreateEvaluationDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
                 <div style={{ flex: 1 }}></div>
                 {activeStep === 1 && selectedSimpleEvaluators.length === 0 && (
                     <Button
-                        title='Skip Evaluators'
+                        title={t('Skip Evaluators')}
                         color='primary'
                         sx={{ mr: 2, borderRadius: 25 }}
                         variant='outlined'

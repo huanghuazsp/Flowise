@@ -201,7 +201,7 @@ export const ArrayRenderer = ({ inputParam, data, disabled, isDocStore = false }
                         {/* Delete button for array item */}
                         {isDeleteButtonVisible && (
                             <IconButton
-                                title='Delete'
+                                title={t('Delete')}
                                 onClick={() => handleDeleteItem(index)}
                                 sx={{
                                     position: 'absolute',

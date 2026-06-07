@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { Alert, Box, Stack, Typography, useTheme } from '@mui/material'
@@ -28,6 +29,7 @@ import { IconCircleCheck, IconExclamationCircle } from '@tabler/icons-react'
 
 const ForgotPasswordPage = () => {
     const theme = useTheme()
+    const { t } = useTranslation()
     useNotifier()
 
     const usernameInput = {
@@ -109,11 +111,11 @@ const ForgotPasswordPage = () => {
                         </Alert>
                     )}
                     <Stack sx={{ gap: 1 }}>
-                        <Typography variant='h1'>Forgot Password?</Typography>
+                        <Typography variant='h1'>{t('Forgot Password?')}</Typography>
                         <Typography variant='body2' sx={{ color: theme.palette.grey[600] }}>
-                            Have a reset password code?{' '}
+                            {t('Have a reset password code? Change your password here.')}{' '}
                             <Link style={{ color: theme.palette.primary.main }} to='/reset-password'>
-                                Change your password here
+                                {t('Change your password here')}
                             </Link>
                             .
                         </Typography>
@@ -123,7 +125,8 @@ const ForgotPasswordPage = () => {
                             <Box>
                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <Typography>
-                                        Email<span style={{ color: 'red' }}>&nbsp;*</span>
+                                        {t('Email')}
+                                        <span style={{ color: 'red' }}>&nbsp;*</span>
                                     </Typography>
                                     <Typography align='left'></Typography>
                                     <div style={{ flexGrow: 1 }}></div>
@@ -146,7 +149,7 @@ const ForgotPasswordPage = () => {
                                 disabled={!usernameVal}
                                 type='submit'
                             >
-                                Send Reset Password Instructions
+                                {t('Send Reset Password Instructions')}
                             </StyledButton>
                         </Stack>
                     </form>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { Chip, Skeleton, Box, Stack, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@mui/material'
@@ -38,6 +39,7 @@ import { evaluators as evaluatorsOptions, numericOperators } from '../evaluators
 
 const Evaluators = () => {
     const theme = useTheme()
+    const { t } = useTranslation()
     const customization = useSelector((state) => state.customization)
     const dispatch = useDispatch()
     const { confirm } = useConfirm()
@@ -184,7 +186,7 @@ const Evaluators = () => {
                             isEditButton={false}
                             onSearchChange={onSearchChange}
                             search={true}
-                            title='Evaluators'
+                            title={t('Evaluators')}
                             description=''
                         >
                             <StyledPermissionButton
@@ -194,7 +196,7 @@ const Evaluators = () => {
                                 onClick={newEvaluator}
                                 startIcon={<IconPlus />}
                             >
-                                New Evaluator
+                                {t('New Evaluator')}
                             </StyledPermissionButton>
                         </ViewHeader>
                         {!isLoading && evaluators.length <= 0 ? (
@@ -206,7 +208,7 @@ const Evaluators = () => {
                                         alt='empty_evaluatorSVG'
                                     />
                                 </Box>
-                                <div>No Evaluators Yet</div>
+                                <div>{t('No Evaluators Yet')}</div>
                             </Stack>
                         ) : (
                             <>
@@ -224,10 +226,10 @@ const Evaluators = () => {
                                             }}
                                         >
                                             <TableRow>
-                                                <TableCell>Type</TableCell>
-                                                <TableCell>Name</TableCell>
-                                                <TableCell>Details</TableCell>
-                                                <TableCell>Last Updated</TableCell>
+                                                <TableCell>{t('Type')}</TableCell>
+                                                <TableCell>{t('Name')}</TableCell>
+                                                <TableCell>{t('Details')}</TableCell>
+                                                <TableCell>{t('Last Updated')}</TableCell>
                                                 <TableCell> </TableCell>
                                             </TableRow>
                                         </TableHead>

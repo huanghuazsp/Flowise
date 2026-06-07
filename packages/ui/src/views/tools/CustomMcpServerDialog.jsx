@@ -823,7 +823,7 @@ const CustomMcpServerDialog = ({ show, dialogProps, onCancel, onConfirm, onAutho
                                     Server Name
                                     <span style={{ color: 'red' }}>&nbsp;*</span>
                                 </Typography>
-                                <TooltipWithParser title='Display name for the MCP server (max 40 characters)' />
+                                <TooltipWithParser title={t('Display name for the MCP server')} />
                             </Stack>
                             <OutlinedInput
                                 id='serverName'
@@ -842,7 +842,7 @@ const CustomMcpServerDialog = ({ show, dialogProps, onCancel, onConfirm, onAutho
                                     Server URL
                                     <span style={{ color: 'red' }}>&nbsp;*</span>
                                 </Typography>
-                                <TooltipWithParser title='The HTTP(S) endpoint of the MCP server (SSE or Streamable HTTP)' />
+                                <TooltipWithParser title={t('The HTTP(S) endpoint of the MCP server')} />
                             </Stack>
                             <OutlinedInput
                                 id='serverUrl'
@@ -879,7 +879,7 @@ const CustomMcpServerDialog = ({ show, dialogProps, onCancel, onConfirm, onAutho
                         <Box>
                             <Stack sx={{ position: 'relative', alignItems: 'center' }} direction='row'>
                                 <Typography variant='overline'>Authentication</Typography>
-                                <TooltipWithParser title='Authentication method to connect to the MCP server' />
+                                <TooltipWithParser title={t('Authentication method to connect to the MCP server')} />
                             </Stack>
                             <FormControl fullWidth>
                                 <Select value={authType} onChange={(e) => setAuthType(e.target.value)} size='small'>

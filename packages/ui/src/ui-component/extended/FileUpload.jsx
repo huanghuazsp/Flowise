@@ -187,7 +187,7 @@ const FileUpload = ({ dialogProps }) => {
                     <IconBulb size={20} color='#16a34a' style={{ flexShrink: 0 }} />
                     <Typography sx={{ color: 'text.secondary', fontSize: '0.8125rem', lineHeight: 1.5 }}>{parser(message)}</Typography>
                 </Box>
-                <SwitchInput label='Enable Full File Upload' onChange={handleChange} value={fullFileUpload} />
+                <SwitchInput label={t('Enable Full File Upload')} onChange={handleChange} value={fullFileUpload} />
             </Box>
 
             <Typography sx={{ fontSize: '0.875rem', fontWeight: 500, mb: 1 }}>Allow Uploads of Type</Typography>

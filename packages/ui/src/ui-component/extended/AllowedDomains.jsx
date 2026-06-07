@@ -187,7 +187,7 @@ const AllowedDomains = ({ dialogProps, onConfirm, hideTitle = false }) => {
                         type='text'
                         size='small'
                         fullWidth
-                        placeholder='Unauthorized domain!'
+                        placeholder={t('Unauthorized domain!')}
                         value={errorMessage}
                         onChange={(e) => {
                             setErrorMessage(e.target.value)

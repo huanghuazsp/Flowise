@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { IconButton } from '@mui/material'
 import { IconThumbUp } from '@tabler/icons-react'
 
 const ThumbsUpButton = (props) => {
+    const { t } = useTranslation()
     const customization = useSelector((state) => state.customization)
     return (
         <IconButton
@@ -11,7 +13,7 @@ const ThumbsUpButton = (props) => {
             onClick={props.onClick}
             size='small'
             sx={{ background: 'transparent', border: 'none' }}
-            title='Thumbs Up'
+            title={t('Thumbs Up')}
         >
             <IconThumbUp
                 style={{ width: '20px', height: '20px' }}

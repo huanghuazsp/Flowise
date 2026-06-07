@@ -126,12 +126,12 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                 response = await predictionApi.sendMessageAndGetPrediction(metadata?.agentflowId, params)
             }
             if (response && response.data) {
-                enqueueSnackbar('Successfully submitted response', { variant: 'success' })
+                enqueueSnackbar(t('Successfully submitted response'), { variant: 'success' })
                 if (onProceedSuccess) onProceedSuccess(response.data)
             }
         } catch (error) {
             console.error(error)
-            enqueueSnackbar(error?.message || 'Failed to submit response', { variant: 'error' })
+            enqueueSnackbar(error?.message || t('Failed to submit response'), { variant: 'error' })
         } finally {
             setIsLoading(false)
             setLoadingMessage('')
@@ -215,7 +215,7 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Typography variant='body1'>Else condition fulfilled</Typography>
                             <Chip
-                                label={condition.isFulfilled ? 'Fulfilled' : 'Not Fulfilled'}
+                                label={condition.isFulfilled ? t('Fulfilled') : t('Not Fulfilled')}
                                 size='small'
                                 sx={{ color: 'white', backgroundColor: theme.palette.success.dark }}
                                 variant='filled'
@@ -362,7 +362,7 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                         }}
                         variant='contained'
                         value='rendered'
-                        title='Rendered'
+                        title={t('Rendered')}
                     >
                         Rendered
                     </ToggleButton>
@@ -374,7 +374,7 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                         }}
                         variant='contained'
                         value='raw'
-                        title='Raw'
+                        title={t('Raw')}
                     >
                         Raw
                     </ToggleButton>
@@ -469,12 +469,12 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                                                                 return matchingTool.toolNode.label || tool.name
                                                             }
                                                         }
-                                                        return tool.name || 'Tool Call'
+                                                        return tool.name || t('Tool Call')
                                                     })()}
                                                 </Typography>
                                                 {isToolUsed && (
                                                     <Chip
-                                                        label='Used'
+                                                        label={t('Used')}
                                                         size='small'
                                                         sx={{ ml: 2, color: 'white', backgroundColor: theme.palette.success.dark }}
                                                     />
@@ -493,7 +493,9 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                                     onClick={() => setShowAllTools((prev) => !prev)}
                                     sx={{ mt: 0.5, textTransform: 'none' }}
                                 >
-                                    {showAllTools ? 'Show less' : `Show ${data.output.availableTools.length - 5} more`}
+                                    {showAllTools
+                                        ? t('Show less')
+                                        : `${t('Show')} ${data.output.availableTools.length - 5} ${t('Show more')}`}
                                 </Button>
                             )}
                         </Box>
@@ -627,11 +629,11 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                                                                         return matchingTool.toolNode.label || toolCall.name
                                                                     }
                                                                 }
-                                                                return toolCall.name || 'Tool Call'
+                                                                return toolCall.name || t('Tool Call')
                                                             })()}
                                                         </Typography>
                                                         <Chip
-                                                            label='Called'
+                                                            label={t('Called')}
                                                             size='small'
                                                             sx={{
                                                                 ml: 2,
@@ -1226,7 +1228,7 @@ export const NodeExecutionDetails = ({ data, label, status, metadata, isPublic, 
                                 //eslint-disable-next-line jsx-a11y/no-autofocus
                                 autoFocus
                                 margin='dense'
-                                label='Feedback'
+                                label={t('Feedback')}
                                 fullWidth
                                 multiline
                                 rows={4}

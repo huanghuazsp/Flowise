@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { cloneDeep } from 'lodash'
 import showdown from 'showdown'
 import parser from 'html-react-parser'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles'
@@ -139,6 +140,7 @@ const NodeInputHandler = ({
     onHideNodeInfoDialog,
     onCustomDataChange
 }) => {
+    const { t } = useTranslation()
     const { id: chatflowIdFromParams } = useParams()
     const canvasChatflow = useSelector((state) => state.canvas.chatflow)
     const chatflowId = chatflowIdFromParams || canvasChatflow?.id
@@ -974,7 +976,7 @@ const NodeInputHandler = ({
                             )}
                             {inputParam.generateDocStoreDescription && (
                                 <IconButton
-                                    title='Generate knowledge base description'
+                                    title={t('Generate knowledge base description')}
                                     sx={{
                                         height: 25,
                                         width: 25
@@ -988,7 +990,7 @@ const NodeInputHandler = ({
                             )}
                             {inputParam.generateInstruction && (
                                 <IconButton
-                                    title='Generate instructions'
+                                    title={t('Generate instructions')}
                                     sx={{
                                         height: 25,
                                         width: 25,
@@ -1226,7 +1228,7 @@ const NodeInputHandler = ({
                                         size='small'
                                         type='password'
                                         disabled
-                                        value={webhookSecretPlaintext ?? '••••••••••••••••••••••••'}
+                                        value={webhookSecretPlaintext ?? '••••••••••••••••••••••••••'}
                                         InputProps={{
                                             readOnly: true,
                                             endAdornment: (
@@ -1260,12 +1262,12 @@ const NodeInputHandler = ({
                                                             </IconButton>
                                                         </Tooltip>
                                                     )}
-                                                    <Tooltip title='Regenerate secret'>
+                                                    <Tooltip title={t('Regenerate secret')}>
                                                         <IconButton size='small' onClick={handleSetWebhookSecret}>
                                                             <IconRefresh size={16} />
                                                         </IconButton>
                                                     </Tooltip>
-                                                    <Tooltip title='Remove secret'>
+                                                    <Tooltip title={t('Remove secret')}>
                                                         <IconButton size='small' onClick={handleClearWebhookSecret}>
                                                             <IconX size={16} />
                                                         </IconButton>

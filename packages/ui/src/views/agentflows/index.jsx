@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { Box, Chip, IconButton, Stack, ToggleButton, ToggleButtonGroup } from '@mui/material'
@@ -37,6 +38,7 @@ const Agentflows = () => {
     const navigate = useNavigate()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
+    const { t } = useTranslation()
 
     const [isLoading, setLoading] = useState(true)
     const [images, setImages] = useState({})
@@ -219,9 +221,9 @@ const Agentflows = () => {
                     <ViewHeader
                         onSearchChange={onSearchChange}
                         search={true}
-                        searchPlaceholder='Search Name or Category'
-                        title='Agentflows'
-                        description='Multi-agent systems, workflow orchestration'
+                        searchPlaceholder={t('Search Name or Category')}
+                        title={t('Agentflows')}
+                        description={t('Multi-agent systems, workflow orchestration')}
                     >
                         <ToggleButtonGroup
                             sx={{ borderRadius: 2, maxHeight: 40 }}
@@ -238,9 +240,9 @@ const Agentflows = () => {
                                 }}
                                 variant='contained'
                                 value='v2'
-                                title='V2'
+                                title={t('V2')}
                             >
-                                <Chip sx={{ mr: 1 }} label='NEW' size='small' color='primary' />
+                                <Chip sx={{ mr: 1 }} label={t('NEW')} size='small' color='primary' />
                                 V2
                             </ToggleButton>
                             <ToggleButton
@@ -251,7 +253,7 @@ const Agentflows = () => {
                                 }}
                                 variant='contained'
                                 value='v1'
-                                title='V1'
+                                title={t('V1')}
                             >
                                 V1
                             </ToggleButton>
@@ -272,7 +274,7 @@ const Agentflows = () => {
                                 }}
                                 variant='contained'
                                 value='card'
-                                title='Card View'
+                                title={t('Card View')}
                             >
                                 <IconLayoutGrid />
                             </ToggleButton>
@@ -284,7 +286,7 @@ const Agentflows = () => {
                                 }}
                                 variant='contained'
                                 value='list'
-                                title='List View'
+                                title={t('List View')}
                             >
                                 <IconList />
                             </ToggleButton>
@@ -296,7 +298,7 @@ const Agentflows = () => {
                             startIcon={<IconPlus />}
                             sx={{ borderRadius: 2, height: 40 }}
                         >
-                            Add New
+                            {t('Add New')}
                         </StyledPermissionButton>
                     </ViewHeader>
 
@@ -324,8 +326,8 @@ const Agentflows = () => {
                                 }}
                             />
                             <Box sx={{ flex: 1 }}>
-                                <strong>V1 Agentflows are deprecated.</strong> We recommend migrating to V2 for improved performance and
-                                continued support.
+                                <strong>{t('V1 Agentflows are deprecated.')}</strong>{' '}
+                                {t('We recommend migrating to V2 for improved performance and continued support.')}
                             </Box>
                             <IconButton
                                 aria-label='dismiss'
@@ -387,7 +389,7 @@ const Agentflows = () => {
                                     alt='AgentsEmptySVG'
                                 />
                             </Box>
-                            <div>No Agents Yet</div>
+                            <div>{t('No Agents Yet')}</div>
                         </Stack>
                     )}
                 </Stack>

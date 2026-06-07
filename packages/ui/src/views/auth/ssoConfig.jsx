@@ -414,7 +414,7 @@ const SSOConfigPage = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader search={false} title='Configure SSO' />
+                        <ViewHeader search={false} title={t('Configure SSO')} />
                         {authErrors && authErrors.length > 0 && (
                             <div
                                 style={{

@@ -132,7 +132,7 @@ const MarketplaceCanvasV2 = () => {
                                         onClick={() => {
                                             setIsSnappingEnabled(!isSnappingEnabled)
                                         }}
-                                        title='toggle snapping'
+                                        title={t('toggle snapping')}
                                         aria-label='toggle snapping'
                                     >
                                         {isSnappingEnabled ? <IconMagnetFilled /> : <IconMagnetOff />}
@@ -142,7 +142,7 @@ const MarketplaceCanvasV2 = () => {
                                         onClick={() => {
                                             setIsBackgroundEnabled(!isBackgroundEnabled)
                                         }}
-                                        title='toggle background'
+                                        title={t('toggle background')}
                                         aria-label='toggle background'
                                     >
                                         {isBackgroundEnabled ? <IconArtboard /> : <IconArtboardOff />}

@@ -179,7 +179,7 @@ const ManageScrapedLinksDialog = ({ show, dialogProps, onCancel, onSave }) => {
                             sx={{ height: 'max-content', width: 'max-content' }}
                             variant='outlined'
                             color='error'
-                            title='Clear All Links'
+                            title={t('Clear All Links')}
                             onClick={handleRemoveAllLinks}
                             startIcon={<IconEraser />}
                         >

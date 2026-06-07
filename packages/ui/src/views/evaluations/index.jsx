@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import * as PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import moment from 'moment/moment'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -66,6 +67,7 @@ const EvalsEvaluation = () => {
     const customization = useSelector((state) => state.customization)
     const { confirm } = useConfirm()
     const dispatch = useDispatch()
+    const { t } = useTranslation()
     useNotifier()
     const { error } = useError()
 
@@ -298,7 +300,7 @@ const EvalsEvaluation = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader isBackButton={false} isEditButton={false} search={false} title={'Evaluations'} description=''>
+                        <ViewHeader isBackButton={false} isEditButton={false} search={false} title={t('Evaluations')} description=''>
                             <ToggleButton
                                 value='auto-refresh'
                                 selected={autoRefresh}
@@ -326,7 +328,7 @@ const EvalsEvaluation = () => {
                                         }
                                     }
                                 }}
-                                title={autoRefresh ? 'Disable auto-refresh' : 'Enable auto-refresh (every 5s)'}
+                                title={autoRefresh ? t('Disable auto-refresh') : t('Enable auto-refresh (every 5s)')}
                             >
                                 {autoRefresh ? <IconPlayerPause /> : <IconPlayerPlay />}
                             </ToggleButton>
@@ -341,7 +343,7 @@ const EvalsEvaluation = () => {
                                     }
                                 }}
                                 onClick={onRefresh}
-                                title='Refresh'
+                                title={t('Refresh')}
                             >
                                 <IconRefresh />
                             </IconButton>
@@ -351,7 +353,7 @@ const EvalsEvaluation = () => {
                                 onClick={createEvaluation}
                                 startIcon={<IconPlus />}
                             >
-                                New Evaluation
+                                {t('New Evaluation')}
                             </StyledPermissionButton>
                         </ViewHeader>
                         {selected.length > 0 && (

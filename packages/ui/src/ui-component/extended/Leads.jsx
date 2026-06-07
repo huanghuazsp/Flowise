@@ -108,7 +108,11 @@ const Leads = ({ dialogProps }) => {
                     mb: 2
                 }}
             >
-                <SwitchInput label='Enable Lead Capture' onChange={(value) => handleChange('status', value)} value={leadsConfig.status} />
+                <SwitchInput
+                    label={t('Enable Lead Capture')}
+                    onChange={(value) => handleChange('status', value)}
+                    value={leadsConfig.status}
+                />
                 {leadsConfig && leadsConfig['status'] && (
                     <>
                         <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
@@ -148,13 +152,17 @@ const Leads = ({ dialogProps }) => {
                         <Typography variant='h4'>Form fields</Typography>
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
-                                <SwitchInput label='Name' onChange={(value) => handleChange('name', value)} value={leadsConfig.name} />
+                                <SwitchInput label={t('Name')} onChange={(value) => handleChange('name', value)} value={leadsConfig.name} />
                                 <SwitchInput
-                                    label='Email Address'
+                                    label={t('Email Address')}
                                     onChange={(value) => handleChange('email', value)}
                                     value={leadsConfig.email}
                                 />
-                                <SwitchInput label='Phone' onChange={(value) => handleChange('phone', value)} value={leadsConfig.phone} />
+                                <SwitchInput
+                                    label={t('Phone')}
+                                    onChange={(value) => handleChange('phone', value)}
+                                    value={leadsConfig.phone}
+                                />
                             </Box>
                         </Box>
                     </>

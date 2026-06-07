@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+﻿import PropTypes from 'prop-types'
 import { Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, MenuItem, Select, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -473,7 +473,7 @@ const FollowUpPrompts = ({ dialogProps }) => {
                 }}
             >
                 <SwitchInput
-                    label='Enable Follow-up Prompts'
+                    label={t('Enable Follow-up Prompts')}
                     onChange={(value) => handleChange('status', value)}
                     value={followUpPromptsConfig.status}
                 />

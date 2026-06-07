@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import moment from 'moment/moment'
 import { useNavigate } from 'react-router-dom'
 
@@ -52,6 +53,7 @@ import { useError } from '@/store/context/ErrorContext'
 // ==============================|| Datasets ||============================== //
 
 const EvalDatasets = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const theme = useTheme()
     const { confirm } = useConfirm()
@@ -205,7 +207,7 @@ const EvalDatasets = () => {
                             isEditButton={false}
                             onSearchChange={onSearchChange}
                             search={true}
-                            title='Datasets'
+                            title={t('Datasets')}
                             description=''
                         >
                             <StyledPermissionButton
@@ -215,7 +217,7 @@ const EvalDatasets = () => {
                                 onClick={addNew}
                                 startIcon={<IconPlus />}
                             >
-                                Add New
+                                {t('Add New')}
                             </StyledPermissionButton>
                         </ViewHeader>
                         {!isLoading && datasets.length <= 0 ? (
@@ -227,7 +229,7 @@ const EvalDatasets = () => {
                                         alt='empty_datasetSVG'
                                     />
                                 </Box>
-                                <div>No Datasets Yet</div>
+                                <div>{t('No Datasets Yet')}</div>
                             </Stack>
                         ) : (
                             <>
@@ -245,10 +247,10 @@ const EvalDatasets = () => {
                                             }}
                                         >
                                             <TableRow>
-                                                <TableCell>Name</TableCell>
-                                                <TableCell>Description</TableCell>
-                                                <TableCell>Rows</TableCell>
-                                                <TableCell>Last Updated</TableCell>
+                                                <TableCell>{t('Name')}</TableCell>
+                                                <TableCell>{t('Description')}</TableCell>
+                                                <TableCell>{t('Rows')}</TableCell>
+                                                <TableCell>{t('Last Updated')}</TableCell>
                                                 <Available permission={'datasets:update,datasets:create'}>
                                                     <TableCell> </TableCell>
                                                 </Available>

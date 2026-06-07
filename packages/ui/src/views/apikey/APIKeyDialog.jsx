@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { StyledButton } from '@/ui-component/button/StyledButton'
 import ConfirmDialog from '@/ui-component/dialog/ConfirmDialog'
@@ -45,6 +46,7 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
 
     const theme = useTheme()
     const dispatch = useDispatch()
+    const { t } = useTranslation()
     const { isOpenSource, isEnterpriseLicensed, isCloud } = useConfig()
 
     // ==============================|| Snackbar ||============================== //
@@ -225,7 +227,7 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
             })
             if (createResp.data) {
                 enqueueSnackbar({
-                    message: 'New API key added',
+                    message: t('New API key added'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -278,7 +280,7 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
             })
             if (saveResp.data) {
                 enqueueSnackbar({
-                    message: 'API Key saved',
+                    message: t('API Key saved'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -369,7 +371,7 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
                                 {dialogProps.key.apiKey}
                             </Typography>
                             <IconButton
-                                title='Copy API Key'
+                                title={t('Copy API Key')}
                                 color='success'
                                 onClick={(event) => {
                                     navigator.clipboard.writeText(dialogProps.key.apiKey)
@@ -405,14 +407,15 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
                 <div className='apikey-editor'>
                     <Box>
                         <Typography sx={{ mb: 1 }} variant='h5'>
-                            <span style={{ color: 'red' }}>*&nbsp;&nbsp;</span>Key Name
+                            <span style={{ color: 'red' }}>*&nbsp;&nbsp;</span>
+                            {t('Key Name')}
                         </Typography>
                         <OutlinedInput
                             id='keyName'
                             type='string'
                             size='small'
                             fullWidth
-                            placeholder='My New Key'
+                            placeholder={t('My New Key')}
                             value={keyName}
                             name='keyName'
                             onChange={(e) => setKeyName(e.target.value)}
@@ -420,7 +423,8 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
                     </Box>
                     <div className='permissions-container'>
                         <p>
-                            <span style={{ color: 'red' }}>*&nbsp;&nbsp;</span>Permissions
+                            <span style={{ color: 'red' }}>*&nbsp;&nbsp;</span>
+                            {t('Permissions')}
                         </p>
                         <div className='permissions-list-wrapper'>
                             {permissions &&
@@ -463,7 +467,7 @@ const APIKeyDialog = ({ show, dialogProps, onCancel, onConfirm, setError }) => {
             </DialogContent>
             <DialogActions>
                 <Button variant='outlined' onClick={onCancel}>
-                    Cancel
+                    {t('Cancel')}
                 </Button>
                 <StyledButton
                     disabled={checkDisabled()}

@@ -276,6 +276,45 @@ class Redis_VectorStores implements INode {
     }
 }
 
+const parseRedisMetadata = (metadataString: string) => {
+    const normalized = unEscapeSpecialChars(metadataString)
+    const candidates = [normalized]
+    const attempted = new Set<string>()
+
+    while (candidates.length) {
+        const candidate = candidates.shift()
+        if (!candidate || attempted.has(candidate)) continue
+        attempted.add(candidate)
+
+        try {
+            const parsed = JSON.parse(candidate)
+
+            if (typeof parsed === 'string') {
+                candidates.push(parsed)
+                continue
+            }
+
+            return parsed
+        } catch {
+            candidates.push(
+                candidate
+                    .replaceAll('\\"', '"')
+                    .replaceAll('\\:', ':')
+                    .replaceAll('\\,', ',')
+                    .replaceAll('\\{', '{')
+                    .replaceAll('\\}', '}')
+                    .replaceAll('\\[', '[')
+                    .replaceAll('\\]', ']')
+            )
+            candidates.push(candidate.replaceAll('\\\\"', '\\"'))
+            candidates.push(candidate.replaceAll('\\"', '"'))
+            candidates.push(candidate.replaceAll('\\\\', '\\'))
+        }
+    }
+
+    throw new Error(`Unable to parse Redis metadata: ${normalized}`)
+}
+
 const checkIndexExists = async (redisClient: ReturnType<typeof createClient>, indexName: string) => {
     try {
         await redisClient.ft.info(indexName)
@@ -346,11 +385,11 @@ const similaritySearchVectorWithScore = async (
             if (res.value) {
                 const document = res.value
                 if (document.vector_score) {
-                    const metadataString = unEscapeSpecialChars(document[metadataKey] as string)
+                    const metadataString = parseRedisMetadata(document[metadataKey] as string)
                     result.push([
                         new Document({
                             pageContent: document[contentKey] as string,
-                            metadata: JSON.parse(metadataString)
+                            metadata: metadataString
                         }),
                         Number(document.vector_score)
                     ])

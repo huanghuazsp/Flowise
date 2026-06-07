@@ -146,7 +146,7 @@ const PostProcessing = ({ dialogProps }) => {
     return (
         <>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
-                <SwitchInput label='Enable Post Processing' onChange={handleChange} value={postProcessingEnabled} />
+                <SwitchInput label={t('Enable Post Processing')} onChange={handleChange} value={postProcessingEnabled} />
             </Box>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
@@ -167,7 +167,7 @@ const PostProcessing = ({ dialogProps }) => {
                             height: 25,
                             width: 25
                         }}
-                        title='Expand'
+                        title={t('Expand')}
                         color='primary'
                         onClick={() => onExpandDialogClicked(postProcessingFunction)}
                     >

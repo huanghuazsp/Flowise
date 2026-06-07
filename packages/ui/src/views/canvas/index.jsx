@@ -178,10 +178,10 @@ const Canvas = () => {
 
     const handleDeleteFlow = async () => {
         const confirmPayload = {
-            title: `Delete`,
-            description: `Delete ${canvasTitle} ${chatflow.name}?`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel'
+            title: t('Delete'),
+            description: `${t('Delete')} ${canvasTitle} ${chatflow.name}?`,
+            confirmButtonName: t('Delete'),
+            cancelButtonName: t('Cancel')
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -349,7 +349,7 @@ const Canvas = () => {
     const saveChatflowSuccess = () => {
         dispatch({ type: REMOVE_DIRTY })
         enqueueSnackbar({
-            message: `${canvasTitle} saved`,
+            message: `${canvasTitle} ${t('saved')}`,
             options: {
                 key: new Date().getTime() + Math.random(),
                 variant: 'success',
@@ -511,7 +511,7 @@ const Canvas = () => {
             dispatch({
                 type: SET_CHATFLOW,
                 chatflow: {
-                    name: `Untitled ${canvasTitle}`
+                    name: `${t('Untitled Chatflow')}`
                 }
             })
         }
@@ -617,7 +617,7 @@ const Canvas = () => {
                                         onClick={() => {
                                             setIsSnappingEnabled(!isSnappingEnabled)
                                         }}
-                                        title='toggle snapping'
+                                        title={t('toggle snapping')}
                                         aria-label='toggle snapping'
                                     >
                                         {isSnappingEnabled ? <IconMagnetFilled /> : <IconMagnetOff />}
@@ -627,7 +627,7 @@ const Canvas = () => {
                                         onClick={() => {
                                             setIsBackgroundEnabled(!isBackgroundEnabled)
                                         }}
-                                        title='toggle background'
+                                        title={t('toggle background')}
                                         aria-label='toggle background'
                                     >
                                         {isBackgroundEnabled ? <IconArtboard /> : <IconArtboardOff />}
@@ -649,7 +649,7 @@ const Canvas = () => {
                                         }}
                                         size='small'
                                         aria-label='sync'
-                                        title='Sync Nodes'
+                                        title={t('Sync Nodes')}
                                         onClick={() => syncNodes()}
                                     >
                                         <IconRefreshAlert />

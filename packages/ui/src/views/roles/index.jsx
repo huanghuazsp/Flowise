@@ -133,7 +133,7 @@ function ViewPermissionsDrawer(props) {
                 )}
                 <Box sx={{ overflowY: 'auto' }}>
                     <Typography sx={{ mb: 1 }} variant='h3'>
-                        Permissions
+                        {t('Permissions')}
                     </Typography>
                     <Box>
                         {permissions &&
@@ -278,7 +278,7 @@ function ShowRoleRow(props) {
                         </Typography>
                         <PermissionIconButton
                             permissionId={'roles:manage'}
-                            title='View'
+                            title={t('View')}
                             color='primary'
                             onClick={() => setOpenViewPermissionsDrawer(!openViewPermissionsDrawer)}
                         >
@@ -303,7 +303,7 @@ function ShowRoleRow(props) {
                 <StyledTableCell>
                     <PermissionIconButton
                         permissionId={'roles:manage'}
-                        title='Edit'
+                        title={t('Edit')}
                         color='primary'
                         onClick={() => props.onEditClick(props.role)}
                     >
@@ -313,7 +313,7 @@ function ShowRoleRow(props) {
                         permissionId={'roles:manage'}
                         disabled={props.role.userCount > 0}
                         color='error'
-                        title={props.role.userCount > 0 ? 'Remove users with the role from Workspace first' : 'Delete'}
+                        title={props.role.userCount > 0 ? t('Remove users with the role from Workspace first') : t('Delete')}
                         onClick={() => props.onDeleteClick(props.role)}
                     >
                         <IconTrash />
@@ -323,7 +323,7 @@ function ShowRoleRow(props) {
             <Drawer anchor='right' open={openAssignedUsersDrawer} onClose={() => setOpenAssignedUsersDrawer(false)} sx={{ minWidth: 320 }}>
                 <Box sx={{ p: 4, height: 'auto', width: 650 }}>
                     <Typography sx={{ textAlign: 'left', mb: 2 }} variant='h2'>
-                        Assigned Users
+                        {t('Assigned Users')}
                     </Typography>
                     <TableContainer
                         style={{ display: 'flex', flexDirection: 'row' }}
@@ -344,7 +344,7 @@ function ShowRoleRow(props) {
                                             direction={orderBy === 'user' ? order : 'asc'}
                                             onClick={() => handleRequestSort('user')}
                                         >
-                                            User
+                                            {t('User')}
                                         </TableSortLabel>
                                     </StyledTableCell>
                                     <StyledTableCell sx={{ width: '50%' }}>
@@ -353,7 +353,7 @@ function ShowRoleRow(props) {
                                             direction={orderBy === 'workspace' ? order : 'asc'}
                                             onClick={() => handleRequestSort('workspace')}
                                         >
-                                            Workspace
+                                            {t('Workspace')}
                                         </TableSortLabel>
                                     </StyledTableCell>
                                 </TableRow>
@@ -448,8 +448,8 @@ const Roles = () => {
     const view = (role) => {
         const dialogProp = {
             type: 'VIEW',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Invite',
+            cancelButtonName: t('Cancel'),
+            confirmButtonName: t('Invite'),
             data: {
                 ...role
             }
@@ -460,10 +460,10 @@ const Roles = () => {
 
     const deleteRole = async (role) => {
         const confirmPayload = {
-            title: `Delete`,
-            description: `Delete Role ${role.name}?`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel'
+            title: t('Delete'),
+            description: `${t('Delete')} ${t('Role')} ${role.name}?`,
+            confirmButtonName: t('Delete'),
+            cancelButtonName: t('Cancel')
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -472,7 +472,7 @@ const Roles = () => {
                 const deleteResp = await roleApi.deleteRole(role.id, currentUser.activeOrganizationId)
                 if (deleteResp.data) {
                     enqueueSnackbar({
-                        message: 'Role deleted',
+                        message: t('Role deleted'),
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -487,7 +487,7 @@ const Roles = () => {
                 }
             } catch (error) {
                 enqueueSnackbar({
-                    message: `Failed to delete Role: ${
+                    message: `${t('Failed to delete Role:')} ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -538,7 +538,7 @@ const Roles = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Roles' title='Roles'>
+                        <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder={t('Search Roles')} title={t('Roles')}>
                             <StyledPermissionButton
                                 permissionId={'roles:manage'}
                                 variant='contained'

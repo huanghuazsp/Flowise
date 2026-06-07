@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect, useCallback, Fragment, useContext, memo } from 'react'
+﻿import { useState, useRef, useEffect, useCallback, Fragment, useContext, memo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types'
 import { cloneDeep } from 'lodash'
 import axios from 'axios'
@@ -160,7 +161,7 @@ const CardWithDeleteOverlay = ({ item, disabled, customization, onDelete }) => {
                     disabled={disabled}
                     onClick={() => onDelete(item)}
                     startIcon={<IconTrash color='white' size={22} />}
-                    title='Remove attachment'
+                    title={t('Remove attachment')}
                     sx={{
                         position: 'absolute',
                         top: 0,
@@ -186,6 +187,7 @@ CardWithDeleteOverlay.propTypes = {
 }
 
 const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, previews, setPreviews }) => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
 
@@ -467,7 +469,7 @@ const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, previews, setP
         const newFiles = await Promise.all(files)
         setUploadedFiles(uploadedFiles)
         setPreviews((prevPreviews) => [...prevPreviews, ...newFiles])
-        // 👇️ reset file input
+        // 👇 reset file input
         event.target.value = null
     }
 
@@ -543,12 +545,12 @@ const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, previews, setP
     }
 
     const handleFileUploadClick = () => {
-        // 👇️ open file input box on click of another element
+        // 👇 open file input box on click of another element
         fileUploadRef.current.click()
     }
 
     const handleImageUploadClick = () => {
-        // 👇️ open file input box on click of another element
+        // 👇 open file input box on click of another element
         imgUploadRef.current.click()
     }
 

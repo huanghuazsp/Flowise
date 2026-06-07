@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -27,6 +28,7 @@ import { gridSpacing } from '@/store/constant'
 // ==============================|| OpenAIAssistantLayout ||============================== //
 
 const OpenAIAssistantLayout = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
 
     const getAllAssistantsApi = useApi(assistantsApi.getAllAssistants)
@@ -118,9 +120,9 @@ const OpenAIAssistantLayout = () => {
                             isBackButton={true}
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Assistants'
-                            title='OpenAI Assistant'
-                            description='Create assistants using OpenAI Assistant API'
+                            searchPlaceholder={t('Search Assistants')}
+                            title={t('OpenAI Assistant')}
+                            description={t('Create assistants using OpenAI Assistant API')}
                             onBack={() => navigate(-1)}
                         >
                             <PermissionButton

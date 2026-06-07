@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -26,6 +27,7 @@ import { IconPlus } from '@tabler/icons-react'
 // ==============================|| CustomAssistantLayout ||============================== //
 
 const CustomAssistantLayout = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
 
     const getAllAssistantsApi = useApi(assistantsApi.getAllAssistants)
@@ -98,9 +100,9 @@ const CustomAssistantLayout = () => {
                             isBackButton={true}
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Assistants'
-                            title='Custom Assistant'
-                            description='Create custom assistants with your choice of LLMs'
+                            searchPlaceholder={t('Search Assistants')}
+                            title={t('Custom Assistant')}
+                            description={t('Create custom assistants with your choice of LLMs')}
                             onBack={() => navigate(-1)}
                         >
                             <StyledPermissionButton

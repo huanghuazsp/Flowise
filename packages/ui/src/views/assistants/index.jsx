@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 // material-ui
 import { Card, CardContent, Chip, Stack } from '@mui/material'
@@ -54,6 +55,7 @@ const FeatureIcon = styled('div')(() => ({
 }))
 
 const FeatureCards = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
@@ -100,10 +102,10 @@ const FeatureCards = () => {
                                 {card.icon}
                                 <span className='text-xs uppercase'>{card.iconText}</span>
                             </FeatureIcon>
-                            {card.deprecating && <Chip label='Deprecating' size='small' color='warning' sx={{ fontWeight: 600 }} />}
+                            {card.deprecating && <Chip label={t('Deprecating')} size='small' color='warning' sx={{ fontWeight: 600 }} />}
                         </Stack>
-                        <h2 className='text-2xl font-bold mb-2'>{card.title}</h2>
-                        <p className='text-gray-600'>{card.description}</p>
+                        <h2 className='text-2xl font-bold mb-2'>{t(card.title)}</h2>
+                        <p className='text-gray-600'>{t(card.description)}</p>
                     </CardContent>
                 </StyledCard>
             ))}
@@ -114,13 +116,14 @@ const FeatureCards = () => {
 // ==============================|| ASSISTANTS ||============================== //
 
 const Assistants = () => {
+    const { t } = useTranslation()
     return (
         <>
             <MainCard>
                 <Stack flexDirection='column' sx={{ gap: 3 }}>
                     <ViewHeader
-                        title='Assistants'
-                        description='Chat assistants with instructions, tools, and files to respond to user queries'
+                        title={t('Assistants')}
+                        description={t('Chat assistants with instructions, tools, and files to respond to user queries')}
                     />
                     <FeatureCards />
                 </Stack>

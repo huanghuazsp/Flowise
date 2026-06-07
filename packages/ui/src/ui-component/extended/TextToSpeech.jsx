@@ -592,7 +592,7 @@ const TextToSpeech = ({ dialogProps }) => {
                                 Automatically play audio
                                 <TooltipWithParser
                                     style={{ marginLeft: 10 }}
-                                    title='When enabled, bot responses will be automatically converted to speech and played'
+                                    title={t('When enabled, bot responses will be automatically converted to speech and played')}
                                 />
                             </Typography>
                         </div>

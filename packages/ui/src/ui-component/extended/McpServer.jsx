@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+﻿import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -239,7 +239,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
     return (
         <>
             <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2 }}>
-                <SwitchInput label='Expose as MCP Server' onChange={handleToggle} value={mcpEnabled} disabled={loading} />
+                <SwitchInput label={t('Expose as MCP Server')} onChange={handleToggle} value={mcpEnabled} disabled={loading} />
             </Box>
 
             {mcpEnabled && (
@@ -312,7 +312,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
                                         <IconButton
                                             size='small'
                                             onClick={() => handleCopyUrl(endpointUrl)}
-                                            title='Copy URL to clipboard'
+                                            title={t('Copy URL to clipboard')}
                                             sx={{ color: customization.isDarkMode ? theme.palette.grey[300] : 'inherit' }}
                                         >
                                             <IconCopy size={18} />
@@ -350,7 +350,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
                                                 navigator.clipboard.writeText(token)
                                                 showSuccess('Token copied to clipboard')
                                             }}
-                                            title='Copy token'
+                                            title={t('Copy token')}
                                             sx={{ color: customization.isDarkMode ? theme.palette.grey[300] : 'inherit' }}
                                         >
                                             <IconCopy size={18} />
@@ -358,7 +358,7 @@ const McpServer = ({ dialogProps, onStatusChange }) => {
                                         <IconButton
                                             size='small'
                                             onClick={handleRefreshCode}
-                                            title='Rotate token'
+                                            title={t('Rotate token')}
                                             disabled={loading}
                                             sx={{ color: customization.isDarkMode ? theme.palette.grey[300] : 'inherit' }}
                                         >

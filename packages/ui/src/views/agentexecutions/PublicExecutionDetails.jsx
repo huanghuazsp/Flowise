@@ -80,7 +80,7 @@ const PublicExecutionDetails = () => {
                                             Invalid Execution
                                         </Typography>
                                         <Typography variant='body1' color='text.secondary' align='center'>
-                                            {`The execution you're looking for doesn't exist or you don't have permission to view it.`}
+                                            {t("The execution you're looking for doesn't exist or you don't have permission to view it.")}
                                         </Typography>
                                     </Stack>
                                 </Card>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
@@ -51,6 +52,7 @@ const StyledPopper = styled(Popper)({
 })
 
 const EditWorkspaceUserRoleDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
+    const { t } = useTranslation()
     const portalElement = document.getElementById('portal')
     const currentUser = useSelector((state) => state.auth.user)
 
@@ -118,7 +120,7 @@ const EditWorkspaceUserRoleDialog = ({ show, dialogProps, onCancel, onConfirm })
             const saveResp = await workspaceApi.updateWorkspaceUserRole(saveObj)
             if (saveResp.data) {
                 enqueueSnackbar({
-                    message: 'WorkspaceUser Details Updated',
+                    message: t('WorkspaceUser Details Updated'),
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -166,7 +168,7 @@ const EditWorkspaceUserRoleDialog = ({ show, dialogProps, onCancel, onConfirm })
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <IconUser style={{ marginRight: '10px' }} />
-                    {'Change Workspace Role - '} {userEmail || ''} {user.name ? `(${user.name})` : ''}
+                    {t('Change Workspace Role')} - {userEmail || ''} {user.name ? `(${user.name})` : ''}
                 </div>
             </DialogTitle>
             <DialogContent>
@@ -183,7 +185,7 @@ const EditWorkspaceUserRoleDialog = ({ show, dialogProps, onCancel, onConfirm })
                         onChange={handleRoleChange}
                         getOptionLabel={(option) => option.label || ''}
                         options={availableRoles}
-                        renderInput={(params) => <TextField {...params} variant='outlined' placeholder='Select Role' />}
+                        renderInput={(params) => <TextField {...params} variant='outlined' placeholder={t('Select Role')} />}
                         value={selectedRole}
                         PopperComponent={StyledPopper}
                     />

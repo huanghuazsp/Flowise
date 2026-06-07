@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
@@ -49,6 +50,7 @@ import { useError } from '@/store/context/ErrorContext'
 import { closeSnackbar as closeSnackbarAction, enqueueSnackbar as enqueueSnackbarAction } from '@/store/actions'
 
 const WorkspaceDetails = () => {
+    const { t } = useTranslation()
     const theme = useTheme()
     const customization = useSelector((state) => state.customization)
     const currentUser = useSelector((state) => state.auth.user)
@@ -120,8 +122,8 @@ const WorkspaceDetails = () => {
     const addUser = () => {
         const dialogProp = {
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Send Invite',
+            cancelButtonName: t('Cancel'),
+            confirmButtonName: t('Send Invite'),
             data: workspace
         }
         setDialogProps(dialogProp)
@@ -140,7 +142,7 @@ const WorkspaceDetails = () => {
         const dialogProp = {
             type: 'EDIT',
             cancelButtonName: 'Cancel',
-            confirmButtonName: 'Update Invite',
+            confirmButtonName: t('Update Invite'),
             data: {
                 ...user,
                 isWorkspaceUser: true
@@ -165,7 +167,7 @@ const WorkspaceDetails = () => {
         const dialogProp = {
             type: 'EDIT',
             cancelButtonName: 'Cancel',
-            confirmButtonName: 'Update Role',
+            confirmButtonName: t('Update Role'),
             data: userObj
         }
         setWorkspaceUserRoleDialogProps(dialogProp)
@@ -318,7 +320,7 @@ const WorkspaceDetails = () => {
                             onSearchChange={onSearchChange}
                             searchPlaceholder={'Search Users'}
                             title={(workspace?.name || '') + ': Workspace Users'}
-                            description={'Manage workspace users and permissions.'}
+                            description={t('Manage workspace users and permissions.')}
                         >
                             {workspaceUsers.length > 0 && (
                                 <>
@@ -473,7 +475,7 @@ const WorkspaceDetails = () => {
                                                             </StyledTableCell>
                                                             <StyledTableCell>
                                                                 {item.isOrgOwner ? (
-                                                                    <Chip size='small' label={'ORGANIZATION OWNER'} />
+                                                                    <Chip size='small' label={t('ORGANIZATION OWNER')} />
                                                                 ) : (
                                                                     item.role.name
                                                                 )}
@@ -503,7 +505,7 @@ const WorkspaceDetails = () => {
                                                             <StyledTableCell>
                                                                 {!item.isOrgOwner && item.status.toUpperCase() === 'INVITED' && (
                                                                     <IconButton
-                                                                        title='Edit'
+                                                                        title={t('Edit')}
                                                                         color='primary'
                                                                         onClick={() => onEditClick(item)}
                                                                     >
@@ -512,7 +514,7 @@ const WorkspaceDetails = () => {
                                                                 )}
                                                                 {!item.isOrgOwner && item.status.toUpperCase() === 'ACTIVE' && (
                                                                     <IconButton
-                                                                        title='Change Role'
+                                                                        title={t('Change Role')}
                                                                         color='primary'
                                                                         onClick={() => onEditClick(item)}
                                                                     >
